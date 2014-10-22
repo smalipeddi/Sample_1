@@ -1,0 +1,2601 @@
+Script started on Tue 21 Oct 2014 11:20:56 PM EDT
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ exitcat users_controller.rbexit[K[Kscript/generate cucumber
+bash: script/generate: No such file or directory
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ rake routes
+                  Prefix Verb   URI Pattern                    Controller#Action
+                    root GET    /                              visitors#index
+        new_user_session GET    /users/sign_in(.:format)       devise/sessions#new
+            user_session POST   /users/sign_in(.:format)       devise/sessions#create
+    destroy_user_session DELETE /users/sign_out(.:format)      devise/sessions#destroy
+           user_password POST   /users/password(.:format)      devise/passwords#create
+       new_user_password GET    /users/password/new(.:format)  devise/passwords#new
+      edit_user_password GET    /users/password/edit(.:format) devise/passwords#edit
+                         PATCH  /users/password(.:format)      devise/passwords#update
+                         PUT    /users/password(.:format)      devise/passwords#update
+cancel_user_registration GET    /users/cancel(.:format)        devise/registrations#cancel
+       user_registration POST   /users(.:format)               devise/registrations#create
+   new_user_registration GET    /users/sign_up(.:format)       devise/registrations#new
+  edit_user_registration GET    /users/edit(.:format)          devise/registrations#edit
+                         PATCH  /users(.:format)               devise/registrations#update
+                         PUT    /users(.:format)               devise/registrations#update
+                         DELETE /users(.:format)               devise/registrations#destroy
+                   users GET    /users(.:format)               users#index
+                         POST   /users(.:format)               users#create
+                new_user GET    /users/new(.:format)           users#new
+               edit_user GET    /users/:id/edit(.:format)      users#edit
+                    user GET    /users/:id(.:format)           users#show
+                         PATCH  /users/:id(.:format)           users#update
+                         PUT    /users/:id(.:format)           users#update
+                         DELETE /users/:id(.:format)           users#destroy
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ 
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ ls
+[0m[01;34mapp[0m       [01;34mbin[0m     [01;32mconfig.ru[0m  [01;32mGemfile[0m       generate  [01;34mlog[0m          [01;34mpublic[0m    [01;32mREADME.txt[0m  [01;34mspec[0m  [01;34mvendor[0m
+[01;32mapp.json[0m  [01;34mconfig[0m  [01;34mdb[0m         [01;32mGemfile.lock[0m  [01;34mlib[0m       [01;32mnitrous.txt[0m  [01;32mRakefile[0m  [01;34mscript[0m      [01;34mtmp[0m
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ cd spec/
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/specgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/spec$ ls
+[0m[01;34mfactories[0m  [01;34mfeatures[0m  [01;34mmodels[0m  [01;32mrails_helper.rb[0m  [01;32mspec_helper.rb[0m  [01;34msupport[0m
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/specgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/spec$ cd features/
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/spec/featuresgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/spec/features$ ls
+[0m[01;34musers[0m  [01;34mvisitors[0m
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/spec/featuresgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/spec/features$ cd u[Kvisitors/
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/spec/features/visitorsgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/spec/features/visitors$ ls
+[0m[01;32mhome_page_spec.rb[0m  [01;32mnavigation_spec.rb[0m  [01;32msign_up_spec.rb[0m
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/spec/features/visitorsgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/spec/features/visitors$ vi home_page_spec.rb 
+[?1049h[?1h=[2;1H▽[6n[1;1H  [1;1H[1;24r[?12;25h[?12l[?25h[27m[m[H[2J[?25l[24;1H"home_page_spec.rb" [dos] 16L, 383C[>c[1;1H[34m# Feature: Home page
+#   As a visitor
+#   I want to visit a home page
+#   So I can learn more about the website[m
+feature [35m'[m[31mHome page[m[35m'[m [33mdo[m
+
+  [34m# Scenario: Visit the home page
+[m  [34m#   Given I am a visitor
+[m  [34m#   When I visit the home page
+[m  [34m#   Then I see "Welcome"[m
+  scenario [35m'[m[31mvisit the home page[m[35m'[m [33mdo[m
+    visit root_path
+    expect(page).to have_content [35m'[m[31mWelcome[m[35m'[m
+  [33mend
+
+end[m
+[1m[34m~                                                                                                                                         [18;1H~                                                                                                                                         [19;1H~                                                                                                                                         [20;1H~                                                                                                                                         [21;1H~                                                                                                                                         [22;1H~                                                                                                                                         [23;1H~                                                                                                                                         [m[24;121H1,1[11CAll]2;home_page_spec.rb (~/Downloads/interview_coding_exercise/spec/features/visitors) - VIM]1;home_page_spec.rb[1;1H[?12l[?25hP+q436f\P+q6b75\P+q6b64\P+q6b72\P+q6b6c\P+q2332\P+q2334\P+q2569\P+q2a37\P+q6b31\[?25l[24;121H2[2;1H[?12l[?25h[?25l[24;121H1[1;1H[?12l[?25h[?25l [31mFeature[m: [32mHome[m page[1;20H[K]2;home_page_spec.rb + (~/Downloads/interview_coding_exercise/spec/features/visitors) - VIM]1;home_page_spec.rb[1;1H[?12l[?25h[?25l[24;121H2[2;1H[?12l[?25h[?25l   [32mAs[m a visitor[2;16H[K[2;1H[?12l[?25h[?25l[24;121H3[3;1H[?12l[?25h[?25l   [32mI[m want to visit a home page[3;31H[K[3;1H[?12l[?25h[?25l[24;121H4[4;1H[?12l[?25h[?25l   [32mSo[m [32mI[m can learn more about the website[4;41H[K[4;1H[?12l[?25h[?25l[24;121H5[5;1H[?12l[?25h[?25l[24;121H6,0-1[6;1H[?12l[?25h[?25l[24;121H7,1  [7;1H[?12l[?25h[?25l[24;123H2[7;2H[?12l[?25h[?25l[24;123H3[7;3H[?12l[?25h[?25l [31mScenario[m: [32mVisit[m the home page[7;33H[K[7;3H[?12l[?25h[?25l[24;121H8[8;3H[?12l[?25h[?25l   [32mGiven[m [32mI[m am a visitor[8;26H[K[8;3H[?12l[?25h[?25l[24;121H9[9;3H[?12l[?25h[?25l   [32mWhen[m [32mI[m visit the home page[9;32H[K[9;3H[?12l[?25h[?25l[24;121H10,3[10;3H[?12l[?25h[?25l   [32mThen[m [32mI[m see [35m"[m[31mWelcome[m[35m"[m[10;26H[K[10;3H[?12l[?25h[?25l[24;122H1[11;3H[?12l[?25h[?25l[24;122H2[12;3H[?12l[?25h[?25l[24;122H3[13;3H[?12l[?25h[?25l[24;122H4[14;3H[?12l[?25h[?25l[24;122H5,0-1[15;1H[?12l[?25h[?25l[24;122H6,3  [16;3H[?12l[?25h[?25l[24;1H[K[24;1H:[?12l[?25hw[?25l[?12l[?25hq[?25l[?12l[?25h![?25l[?12l[?25h[?25l"home_page_spec.rb" [dos] 16L, 375C written]2;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/spec/features/visitors]1;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/spec/features/visitors
+[?1l>[?12l[?25h[?1049l]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/spec/features/visitorsgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/spec/features/visitors$ cucumber home_page_spec.rb 
+home_page_spec.rb: Lexing error on line 11: '  scenario 'visit the home page' do'. See http://wiki.github.com/cucumber/gherkin/lexingerror for more information. (Gherkin::Lexer::LexingError)
+/var/lib/gems/1.9.1/gems/gherkin-2.12.2/lib/gherkin/lexer/i18n_lexer.rb:24:in `scan'
+/var/lib/gems/1.9.1/gems/gherkin-2.12.2/lib/gherkin/lexer/i18n_lexer.rb:24:in `scan'
+/var/lib/gems/1.9.1/gems/gherkin-2.12.2/lib/gherkin/parser/parser.rb:33:in `parse'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/feature_file.rb:37:in `parse'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/features_loader.rb:28:in `block in load'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/features_loader.rb:26:in `each'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/features_loader.rb:26:in `load'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/features_loader.rb:14:in `features'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime.rb:179:in `features'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime.rb:49:in `run!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/cli/main.rb:47:in `execute!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/bin/cucumber:13:in `<top (required)>'
+/usr/local/bin/cucumber:23:in `load'
+/usr/local/bin/cucumber:23:in `<main>'
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/spec/features/visitorsgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/spec/features/visitors$ gem list[K[K[K[K[K[K[K[Kcd ..cd[K[K
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/spec/featuresgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/spec/features$ cd ..
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/specgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/spec$ \[Kcd ..
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ ls
+[0m[01;34mapp[0m       [01;34mbin[0m     [01;32mconfig.ru[0m  [01;32mGemfile[0m       generate  [01;34mlog[0m          [01;34mpublic[0m    [01;32mREADME.txt[0m  [01;34mspec[0m  [01;34mvendor[0m
+[01;32mapp.json[0m  [01;34mconfig[0m  [01;34mdb[0m         [01;32mGemfile.lock[0m  [01;34mlib[0m       [01;32mnitrous.txt[0m  [01;32mRakefile[0m  [01;34mscript[0m      [01;34mtmp[0m
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ gem list
+
+*** LOCAL GEMS ***
+
+actionmailer (4.1.6, 4.0.2)
+actionpack (4.1.6, 4.0.2)
+actionview (4.1.6)
+activemodel (4.1.6, 4.0.2)
+activerecord (4.1.6, 4.0.2)
+activerecord-deprecated_finders (1.0.3)
+activesupport (4.1.6, 4.0.2)
+addressable (2.3.6)
+arel (5.0.1.20140414130214, 4.0.2)
+atomic (1.1.16)
+bcrypt (3.1.7)
+blankslate (2.1.2.4)
+bootstrap-sass (3.2.0.2)
+bootstrap_form (2.2.0)
+builder (3.2.2, 3.1.4)
+bundler (1.7.3, 1.3.5)
+capybara (2.4.3)
+celluloid (0.16.0)
+childprocess (0.5.5)
+coderay (1.1.0)
+coffee-rails (4.0.1)
+coffee-script (2.3.0)
+coffee-script-source (1.8.0)
+cucumber (1.3.17)
+daemons (1.1.9)
+database_cleaner (1.3.0)
+desk (1.0.3)
+devise (3.4.0)
+diff-lcs (1.2.5)
+erubis (2.7.0)
+eventmachine (1.0.3)
+execjs (2.2.1)
+factory_girl (4.4.0)
+factory_girl_rails (4.4.1)
+faker (1.4.3)
+faraday (0.9.0)
+faraday_middleware (0.9.1)
+ffi (1.9.5)
+formatador (0.2.5)
+gherkin (2.12.2)
+guard (2.6.1)
+guard-rspec (4.3.1)
+hashie (2.1.2)
+hike (1.2.3)
+hitimes (1.2.2)
+i18n (0.6.11, 0.6.9)
+jbuilder (2.1.3, 1.5.3)
+jquery-rails (3.1.2)
+jquery-turbolinks (2.1.0)
+json (1.8.1, 1.8.0)
+json_builder (3.1.7)
+launchy (2.4.2)
+libv8 (3.16.14.7)
+listen (2.7.11)
+lumberjack (1.0.9)
+mail (2.6.1, 2.5.4)
+method_source (0.8.2)
+mime-types (2.3, 1.25.1)
+mini_portile (0.6.0)
+minitest (5.4.2, 5.2.1, 4.7.5)
+multi_json (1.10.1, 1.8.0)
+multi_test (0.1.1)
+multi_xml (0.5.5)
+multipart-post (2.0.0)
+mysql2 (0.3.16)
+net-http-persistent (2.9)
+nokogiri (1.6.3.1)
+oj (2.5.3)
+orm_adapter (0.5.0)
+pg (0.17.1)
+polyglot (0.3.5)
+pony (1.11)
+pry (0.10.1)
+quiet_assets (1.0.3)
+rack (1.5.2)
+rack-ssl (1.3.2)
+rack-test (0.6.2)
+rails (4.1.6, 4.0.2)
+rails_12factor (0.0.2)
+rails_layout (1.0.22)
+rails_serve_static_assets (0.0.2)
+rails_stdout_logging (0.0.3)
+railties (4.1.6, 4.0.2)
+rake (10.3.2, 10.0.4)
+rb-fsevent (0.9.4)
+rb-inotify (0.9.5)
+rdoc (4.1.2, 3.9.4)
+ref (1.0.5)
+responders (1.1.1)
+rspec (3.1.0)
+rspec-core (3.1.5, 3.0.3)
+rspec-expectations (3.1.2, 3.0.3)
+rspec-mocks (3.1.2, 3.0.3)
+rspec-rails (3.1.0, 3.0.2)
+rspec-support (3.1.1, 3.0.3)
+rubyzip (1.1.6)
+sass (3.2.19)
+sass-rails (4.0.3)
+sdoc (0.4.1)
+selenium-webdriver (2.43.0)
+simple_oauth (0.2.0)
+slop (3.6.0)
+spring (1.1.3)
+sprockets (2.12.2, 2.11.0)
+sprockets-rails (2.1.4, 2.0.1)
+sqlite3 (1.3.9)
+therubyracer (0.12.1)
+thin (1.6.2)
+thor (0.19.1, 0.18.1.20140116)
+thread_safe (0.3.4, 0.1.3)
+tilt (1.4.1)
+timers (4.0.1)
+treetop (1.4.15)
+turbolinks (2.4.0)
+tzinfo (1.2.2, 1.1.0, 0.3.41)
+uglifier (2.5.3)
+warden (1.2.3)
+websocket (1.2.1)
+xpath (2.0.0)
+yajl-ruby (1.2.0)
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ gem install webrat
+Fetching: webrat-0.7.3.gemFetching: webrat-0.7.3.gem (  1%)Fetching: webrat-0.7.3.gem (  2%)Fetching: webrat-0.7.3.gem (  3%)Fetching: webrat-0.7.3.gem (  4%)Fetching: webrat-0.7.3.gem (  5%)Fetching: webrat-0.7.3.gem (  6%)Fetching: webrat-0.7.3.gem (  7%)Fetching: webrat-0.7.3.gem (  8%)Fetching: webrat-0.7.3.gem (  9%)Fetching: webrat-0.7.3.gem ( 10%)Fetching: webrat-0.7.3.gem ( 11%)Fetching: webrat-0.7.3.gem ( 12%)Fetching: webrat-0.7.3.gem ( 13%)Fetching: webrat-0.7.3.gem ( 14%)Fetching: webrat-0.7.3.gem ( 15%)Fetching: webrat-0.7.3.gem ( 16%)Fetching: webrat-0.7.3.gem ( 17%)Fetching: webrat-0.7.3.gem ( 18%)Fetching: webrat-0.7.3.gem ( 19%)Fetching: webrat-0.7.3.gem ( 20%)Fetching: webrat-0.7.3.gem ( 21%)Fetching: webrat-0.7.3.gem ( 22%)Fetching: webrat-0.7.3.gem ( 23%)Fetching: webrat-0.7.3.gem ( 24%)Fetching: webrat-0.7.3.gem ( 25%)Fetching: webrat-0.7.3.gem ( 26%)Fetching: webrat-0.7.3.gem ( 27%)Fetching: webrat-0.7.3.gem ( 28%)Fetching: webrat-0.7.3.gem ( 29%)Fetching: webrat-0.7.3.gem ( 30%)Fetching: webrat-0.7.3.gem ( 31%)Fetching: webrat-0.7.3.gem ( 32%)Fetching: webrat-0.7.3.gem ( 33%)Fetching: webrat-0.7.3.gem ( 34%)Fetching: webrat-0.7.3.gem ( 35%)Fetching: webrat-0.7.3.gem ( 36%)Fetching: webrat-0.7.3.gem ( 37%)Fetching: webrat-0.7.3.gem ( 38%)Fetching: webrat-0.7.3.gem ( 39%)Fetching: webrat-0.7.3.gem ( 40%)Fetching: webrat-0.7.3.gem ( 41%)Fetching: webrat-0.7.3.gem ( 42%)Fetching: webrat-0.7.3.gem ( 43%)Fetching: webrat-0.7.3.gem ( 44%)Fetching: webrat-0.7.3.gem ( 45%)Fetching: webrat-0.7.3.gem ( 46%)Fetching: webrat-0.7.3.gem ( 47%)Fetching: webrat-0.7.3.gem ( 48%)Fetching: webrat-0.7.3.gem ( 49%)Fetching: webrat-0.7.3.gem ( 50%)Fetching: webrat-0.7.3.gem ( 51%)Fetching: webrat-0.7.3.gem ( 52%)Fetching: webrat-0.7.3.gem ( 53%)Fetching: webrat-0.7.3.gem ( 54%)Fetching: webrat-0.7.3.gem ( 55%)Fetching: webrat-0.7.3.gem ( 56%)Fetching: webrat-0.7.3.gem ( 57%)Fetching: webrat-0.7.3.gem ( 58%)Fetching: webrat-0.7.3.gem ( 59%)Fetching: webrat-0.7.3.gem ( 60%)Fetching: webrat-0.7.3.gem ( 61%)Fetching: webrat-0.7.3.gem ( 62%)Fetching: webrat-0.7.3.gem ( 63%)Fetching: webrat-0.7.3.gem ( 64%)Fetching: webrat-0.7.3.gem ( 65%)Fetching: webrat-0.7.3.gem ( 66%)Fetching: webrat-0.7.3.gem ( 67%)Fetching: webrat-0.7.3.gem ( 68%)Fetching: webrat-0.7.3.gem ( 69%)Fetching: webrat-0.7.3.gem ( 70%)Fetching: webrat-0.7.3.gem ( 71%)Fetching: webrat-0.7.3.gem ( 72%)Fetching: webrat-0.7.3.gem ( 73%)Fetching: webrat-0.7.3.gem ( 74%)Fetching: webrat-0.7.3.gem ( 75%)Fetching: webrat-0.7.3.gem ( 76%)Fetching: webrat-0.7.3.gem ( 77%)Fetching: webrat-0.7.3.gem ( 78%)Fetching: webrat-0.7.3.gem ( 79%)Fetching: webrat-0.7.3.gem ( 80%)Fetching: webrat-0.7.3.gem ( 81%)Fetching: webrat-0.7.3.gem ( 82%)Fetching: webrat-0.7.3.gem ( 83%)Fetching: webrat-0.7.3.gem ( 84%)Fetching: webrat-0.7.3.gem ( 85%)Fetching: webrat-0.7.3.gem ( 86%)Fetching: webrat-0.7.3.gem ( 87%)Fetching: webrat-0.7.3.gem ( 88%)Fetching: webrat-0.7.3.gem ( 89%)Fetching: webrat-0.7.3.gem ( 90%)Fetching: webrat-0.7.3.gem ( 91%)Fetching: webrat-0.7.3.gem ( 92%)Fetching: webrat-0.7.3.gem ( 93%)Fetching: webrat-0.7.3.gem ( 94%)Fetching: webrat-0.7.3.gem ( 95%)Fetching: webrat-0.7.3.gem ( 96%)Fetching: webrat-0.7.3.gem ( 97%)Fetching: webrat-0.7.3.gem ( 98%)Fetching: webrat-0.7.3.gem ( 99%)Fetching: webrat-0.7.3.gem (100%)Fetching: webrat-0.7.3.gem (100%)
+ERROR:  While executing gem ... (Gem::FilePermissionError)
+    You don't have write permissions into the /var/lib/gems/1.9.1 directory.
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ gem install webrat[1@s[1@u[1@d[1@o[1@ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[sudo] password for govisun: 
+Fetching: webrat-0.7.3.gemFetching: webrat-0.7.3.gem (  1%)Fetching: webrat-0.7.3.gem (  2%)Fetching: webrat-0.7.3.gem (  3%)Fetching: webrat-0.7.3.gem (  4%)Fetching: webrat-0.7.3.gem (  5%)Fetching: webrat-0.7.3.gem (  6%)Fetching: webrat-0.7.3.gem (  7%)Fetching: webrat-0.7.3.gem (  8%)Fetching: webrat-0.7.3.gem (  9%)Fetching: webrat-0.7.3.gem ( 10%)Fetching: webrat-0.7.3.gem ( 11%)Fetching: webrat-0.7.3.gem ( 12%)Fetching: webrat-0.7.3.gem ( 13%)Fetching: webrat-0.7.3.gem ( 14%)Fetching: webrat-0.7.3.gem ( 15%)Fetching: webrat-0.7.3.gem ( 16%)Fetching: webrat-0.7.3.gem ( 17%)Fetching: webrat-0.7.3.gem ( 18%)Fetching: webrat-0.7.3.gem ( 19%)Fetching: webrat-0.7.3.gem ( 20%)Fetching: webrat-0.7.3.gem ( 21%)Fetching: webrat-0.7.3.gem ( 22%)Fetching: webrat-0.7.3.gem ( 23%)Fetching: webrat-0.7.3.gem ( 24%)Fetching: webrat-0.7.3.gem ( 25%)Fetching: webrat-0.7.3.gem ( 26%)Fetching: webrat-0.7.3.gem ( 27%)Fetching: webrat-0.7.3.gem ( 28%)Fetching: webrat-0.7.3.gem ( 29%)Fetching: webrat-0.7.3.gem ( 30%)Fetching: webrat-0.7.3.gem ( 31%)Fetching: webrat-0.7.3.gem ( 32%)Fetching: webrat-0.7.3.gem ( 33%)Fetching: webrat-0.7.3.gem ( 34%)Fetching: webrat-0.7.3.gem ( 35%)Fetching: webrat-0.7.3.gem ( 36%)Fetching: webrat-0.7.3.gem ( 37%)Fetching: webrat-0.7.3.gem ( 38%)Fetching: webrat-0.7.3.gem ( 39%)Fetching: webrat-0.7.3.gem ( 40%)Fetching: webrat-0.7.3.gem ( 41%)Fetching: webrat-0.7.3.gem ( 42%)Fetching: webrat-0.7.3.gem ( 43%)Fetching: webrat-0.7.3.gem ( 44%)Fetching: webrat-0.7.3.gem ( 45%)Fetching: webrat-0.7.3.gem ( 46%)Fetching: webrat-0.7.3.gem ( 47%)Fetching: webrat-0.7.3.gem ( 48%)Fetching: webrat-0.7.3.gem ( 49%)Fetching: webrat-0.7.3.gem ( 50%)Fetching: webrat-0.7.3.gem ( 51%)Fetching: webrat-0.7.3.gem ( 52%)Fetching: webrat-0.7.3.gem ( 53%)Fetching: webrat-0.7.3.gem ( 54%)Fetching: webrat-0.7.3.gem ( 55%)Fetching: webrat-0.7.3.gem ( 56%)Fetching: webrat-0.7.3.gem ( 57%)Fetching: webrat-0.7.3.gem ( 58%)Fetching: webrat-0.7.3.gem ( 59%)Fetching: webrat-0.7.3.gem ( 60%)Fetching: webrat-0.7.3.gem ( 61%)Fetching: webrat-0.7.3.gem ( 62%)Fetching: webrat-0.7.3.gem ( 63%)Fetching: webrat-0.7.3.gem ( 64%)Fetching: webrat-0.7.3.gem ( 65%)Fetching: webrat-0.7.3.gem ( 66%)Fetching: webrat-0.7.3.gem ( 67%)Fetching: webrat-0.7.3.gem ( 68%)Fetching: webrat-0.7.3.gem ( 69%)Fetching: webrat-0.7.3.gem ( 70%)Fetching: webrat-0.7.3.gem ( 71%)Fetching: webrat-0.7.3.gem ( 72%)Fetching: webrat-0.7.3.gem ( 73%)Fetching: webrat-0.7.3.gem ( 74%)Fetching: webrat-0.7.3.gem ( 75%)Fetching: webrat-0.7.3.gem ( 76%)Fetching: webrat-0.7.3.gem ( 77%)Fetching: webrat-0.7.3.gem ( 78%)Fetching: webrat-0.7.3.gem ( 79%)Fetching: webrat-0.7.3.gem ( 80%)Fetching: webrat-0.7.3.gem ( 81%)Fetching: webrat-0.7.3.gem ( 82%)Fetching: webrat-0.7.3.gem ( 83%)Fetching: webrat-0.7.3.gem ( 84%)Fetching: webrat-0.7.3.gem ( 85%)Fetching: webrat-0.7.3.gem ( 86%)Fetching: webrat-0.7.3.gem ( 87%)Fetching: webrat-0.7.3.gem ( 88%)Fetching: webrat-0.7.3.gem ( 89%)Fetching: webrat-0.7.3.gem ( 90%)Fetching: webrat-0.7.3.gem ( 91%)Fetching: webrat-0.7.3.gem ( 92%)Fetching: webrat-0.7.3.gem ( 93%)Fetching: webrat-0.7.3.gem ( 94%)Fetching: webrat-0.7.3.gem ( 95%)Fetching: webrat-0.7.3.gem ( 96%)Fetching: webrat-0.7.3.gem ( 97%)Fetching: webrat-0.7.3.gem ( 98%)Fetching: webrat-0.7.3.gem ( 99%)Fetching: webrat-0.7.3.gem (100%)Fetching: webrat-0.7.3.gem (100%)
+Successfully installed webrat-0.7.3
+1 gem installed
+Installing ri documentation for webrat-0.7.3...
+Installing RDoc documentation for webrat-0.7.3...
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ gem list
+
+*** LOCAL GEMS ***
+
+actionmailer (4.1.6, 4.0.2)
+actionpack (4.1.6, 4.0.2)
+actionview (4.1.6)
+activemodel (4.1.6, 4.0.2)
+activerecord (4.1.6, 4.0.2)
+activerecord-deprecated_finders (1.0.3)
+activesupport (4.1.6, 4.0.2)
+addressable (2.3.6)
+arel (5.0.1.20140414130214, 4.0.2)
+atomic (1.1.16)
+bcrypt (3.1.7)
+blankslate (2.1.2.4)
+bootstrap-sass (3.2.0.2)
+bootstrap_form (2.2.0)
+builder (3.2.2, 3.1.4)
+bundler (1.7.3, 1.3.5)
+capybara (2.4.3)
+celluloid (0.16.0)
+childprocess (0.5.5)
+coderay (1.1.0)
+coffee-rails (4.0.1)
+coffee-script (2.3.0)
+coffee-script-source (1.8.0)
+cucumber (1.3.17)
+daemons (1.1.9)
+database_cleaner (1.3.0)
+desk (1.0.3)
+devise (3.4.0)
+diff-lcs (1.2.5)
+erubis (2.7.0)
+eventmachine (1.0.3)
+execjs (2.2.1)
+factory_girl (4.4.0)
+factory_girl_rails (4.4.1)
+faker (1.4.3)
+faraday (0.9.0)
+faraday_middleware (0.9.1)
+ffi (1.9.5)
+formatador (0.2.5)
+gherkin (2.12.2)
+guard (2.6.1)
+guard-rspec (4.3.1)
+hashie (2.1.2)
+hike (1.2.3)
+hitimes (1.2.2)
+i18n (0.6.11, 0.6.9)
+jbuilder (2.1.3, 1.5.3)
+jquery-rails (3.1.2)
+jquery-turbolinks (2.1.0)
+json (1.8.1, 1.8.0)
+json_builder (3.1.7)
+launchy (2.4.2)
+libv8 (3.16.14.7)
+listen (2.7.11)
+lumberjack (1.0.9)
+mail (2.6.1, 2.5.4)
+method_source (0.8.2)
+mime-types (2.3, 1.25.1)
+mini_portile (0.6.0)
+minitest (5.4.2, 5.2.1, 4.7.5)
+multi_json (1.10.1, 1.8.0)
+multi_test (0.1.1)
+multi_xml (0.5.5)
+multipart-post (2.0.0)
+mysql2 (0.3.16)
+net-http-persistent (2.9)
+nokogiri (1.6.3.1)
+oj (2.5.3)
+orm_adapter (0.5.0)
+pg (0.17.1)
+polyglot (0.3.5)
+pony (1.11)
+pry (0.10.1)
+quiet_assets (1.0.3)
+rack (1.5.2)
+rack-ssl (1.3.2)
+rack-test (0.6.2)
+rails (4.1.6, 4.0.2)
+rails_12factor (0.0.2)
+rails_layout (1.0.22)
+rails_serve_static_assets (0.0.2)
+rails_stdout_logging (0.0.3)
+railties (4.1.6, 4.0.2)
+rake (10.3.2, 10.0.4)
+rb-fsevent (0.9.4)
+rb-inotify (0.9.5)
+rdoc (4.1.2, 3.9.4)
+ref (1.0.5)
+responders (1.1.1)
+rspec (3.1.0)
+rspec-core (3.1.5, 3.0.3)
+rspec-expectations (3.1.2, 3.0.3)
+rspec-mocks (3.1.2, 3.0.3)
+rspec-rails (3.1.0, 3.0.2)
+rspec-support (3.1.1, 3.0.3)
+rubyzip (1.1.6)
+sass (3.2.19)
+sass-rails (4.0.3)
+sdoc (0.4.1)
+selenium-webdriver (2.43.0)
+simple_oauth (0.2.0)
+slop (3.6.0)
+spring (1.1.3)
+sprockets (2.12.2, 2.11.0)
+sprockets-rails (2.1.4, 2.0.1)
+sqlite3 (1.3.9)
+therubyracer (0.12.1)
+thin (1.6.2)
+thor (0.19.1, 0.18.1.20140116)
+thread_safe (0.3.4, 0.1.3)
+tilt (1.4.1)
+timers (4.0.1)
+treetop (1.4.15)
+turbolinks (2.4.0)
+tzinfo (1.2.2, 1.1.0, 0.3.41)
+uglifier (2.5.3)
+warden (1.2.3)
+webrat (0.7.3)
+websocket (1.2.1)
+xpath (2.0.0)
+yajl-ruby (1.2.0)
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ sudo rake gems:install RAILS_ENV=test
+rake aborted!
+Don't know how to build task 'gems:install'
+
+(See full trace by running task with --trace)
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ 
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ sudo gem install mocha
+Fetching: metaclass-0.0.4.gemFetching: metaclass-0.0.4.gem ( 22%)Fetching: metaclass-0.0.4.gem ( 44%)Fetching: metaclass-0.0.4.gem ( 66%)Fetching: metaclass-0.0.4.gem ( 88%)Fetching: metaclass-0.0.4.gem (100%)Fetching: metaclass-0.0.4.gem (100%)
+Fetching: mocha-1.1.0.gemFetching: mocha-1.1.0.gem (  2%)Fetching: mocha-1.1.0.gem (  4%)Fetching: mocha-1.1.0.gem (  5%)Fetching: mocha-1.1.0.gem (  7%)Fetching: mocha-1.1.0.gem (  9%)Fetching: mocha-1.1.0.gem ( 10%)Fetching: mocha-1.1.0.gem ( 12%)Fetching: mocha-1.1.0.gem ( 14%)Fetching: mocha-1.1.0.gem ( 15%)Fetching: mocha-1.1.0.gem ( 17%)Fetching: mocha-1.1.0.gem ( 19%)Fetching: mocha-1.1.0.gem ( 20%)Fetching: mocha-1.1.0.gem ( 22%)Fetching: mocha-1.1.0.gem ( 24%)Fetching: mocha-1.1.0.gem ( 25%)Fetching: mocha-1.1.0.gem ( 27%)Fetching: mocha-1.1.0.gem ( 28%)Fetching: mocha-1.1.0.gem ( 30%)Fetching: mocha-1.1.0.gem ( 31%)Fetching: mocha-1.1.0.gem ( 33%)Fetching: mocha-1.1.0.gem ( 35%)Fetching: mocha-1.1.0.gem ( 36%)Fetching: mocha-1.1.0.gem ( 38%)Fetching: mocha-1.1.0.gem ( 40%)Fetching: mocha-1.1.0.gem ( 41%)Fetching: mocha-1.1.0.gem ( 43%)Fetching: mocha-1.1.0.gem ( 45%)Fetching: mocha-1.1.0.gem ( 46%)Fetching: mocha-1.1.0.gem ( 48%)Fetching: mocha-1.1.0.gem ( 50%)Fetching: mocha-1.1.0.gem ( 51%)Fetching: mocha-1.1.0.gem ( 53%)Fetching: mocha-1.1.0.gem ( 54%)Fetching: mocha-1.1.0.gem ( 56%)Fetching: mocha-1.1.0.gem ( 58%)Fetching: mocha-1.1.0.gem ( 59%)Fetching: mocha-1.1.0.gem ( 61%)Fetching: mocha-1.1.0.gem ( 63%)Fetching: mocha-1.1.0.gem ( 64%)Fetching: mocha-1.1.0.gem ( 66%)Fetching: mocha-1.1.0.gem ( 68%)Fetching: mocha-1.1.0.gem ( 69%)Fetching: mocha-1.1.0.gem ( 71%)Fetching: mocha-1.1.0.gem ( 73%)Fetching: mocha-1.1.0.gem ( 74%)Fetching: mocha-1.1.0.gem ( 76%)Fetching: mocha-1.1.0.gem ( 78%)Fetching: mocha-1.1.0.gem ( 79%)Fetching: mocha-1.1.0.gem ( 81%)Fetching: mocha-1.1.0.gem ( 83%)Fetching: mocha-1.1.0.gem ( 84%)Fetching: mocha-1.1.0.gem ( 86%)Fetching: mocha-1.1.0.gem ( 88%)Fetching: mocha-1.1.0.gem ( 89%)Fetching: mocha-1.1.0.gem ( 91%)Fetching: mocha-1.1.0.gem ( 93%)Fetching: mocha-1.1.0.gem ( 94%)Fetching: mocha-1.1.0.gem ( 96%)Fetching: mocha-1.1.0.gem ( 97%)Fetching: mocha-1.1.0.gem ( 99%)Fetching: mocha-1.1.0.gem (100%)Fetching: mocha-1.1.0.gem (100%)
+Successfully installed metaclass-0.0.4
+Successfully installed mocha-1.1.0
+2 gems installed
+Installing ri documentation for metaclass-0.0.4...
+Installing ri documentation for mocha-1.1.0...
+Installing RDoc documentation for metaclass-0.0.4...
+Installing RDoc documentation for mocha-1.1.0...
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ sudo gem install mocharake gems:install RAILS_ENV=test
+rake aborted!
+Don't know how to build task 'gems:install'
+
+(See full trace by running task with --trace)
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bunde[Kle install
+Using rake (10.3.2) 
+Using i18n (0.6.11) 
+Using json (1.8.1) 
+Using minitest (5.4.2) 
+Using thread_safe (0.3.4) 
+Using tzinfo (1.2.2) 
+Using activesupport (4.1.6) 
+Using builder (3.2.2) 
+Using erubis (2.7.0) 
+Using actionview (4.1.6) 
+Using rack (1.5.2) 
+Using rack-test (0.6.2) 
+Using actionpack (4.1.6) 
+Using mime-types (2.3) 
+Using mail (2.6.1) 
+Using actionmailer (4.1.6) 
+Using activemodel (4.1.6) 
+Using arel (5.0.1.20140414130214) 
+Using activerecord (4.1.6) 
+Using addressable (2.3.6) 
+Using bcrypt (3.1.7) 
+Using sass (3.2.19) 
+Using bootstrap-sass (3.2.0.2) 
+Using mini_portile (0.6.0) 
+Using nokogiri (1.6.3.1) 
+Using xpath (2.0.0) 
+Using capybara (2.4.3) 
+Using ffi (1.9.5) 
+Using childprocess (0.5.5) 
+Using coffee-script-source (1.8.0) 
+Using execjs (2.2.1) 
+Using coffee-script (2.3.0) 
+Using thor (0.19.1) 
+Using railties (4.1.6) 
+Using coffee-rails (4.0.1) 
+Using database_cleaner (1.3.0) 
+Using orm_adapter (0.5.0) 
+Using responders (1.1.1) 
+Using warden (1.2.3) 
+Using devise (3.4.0) 
+Using diff-lcs (1.2.5) 
+Using factory_girl (4.4.0) 
+Using factory_girl_rails (4.4.1) 
+Using faker (1.4.3) 
+Using hike (1.2.3) 
+Using multi_json (1.10.1) 
+Using jbuilder (2.1.3) 
+Using jquery-rails (3.1.2) 
+Using launchy (2.4.2) 
+Using pg (0.17.1) 
+Using quiet_assets (1.0.3) 
+Using bundler (1.3.5) 
+Using tilt (1.4.1) 
+Using sprockets (2.11.0) 
+Using sprockets-rails (2.1.4) 
+Using rails (4.1.6) 
+Using rails_serve_static_assets (0.0.2) 
+Using rails_stdout_logging (0.0.3) 
+Using rails_12factor (0.0.2) 
+Using rails_layout (1.0.22) 
+Using rdoc (4.1.2) 
+Using rspec-support (3.1.1) 
+Using rspec-core (3.1.5) 
+Using rspec-expectations (3.1.2) 
+Using rspec-mocks (3.1.2) 
+Using rspec-rails (3.1.0) 
+Using rubyzip (1.1.6) 
+Using sass-rails (4.0.3) 
+Using sdoc (0.4.1) 
+Using websocket (1.2.1) 
+Using selenium-webdriver (2.43.0) 
+Using spring (1.1.3) 
+Using sqlite3 (1.3.9) 
+Using turbolinks (2.4.0) 
+Using uglifier (2.5.3) 
+[32mYour bundle is complete![0m
+[32mUse `bundle show [gemname]` to see where a bundled gem is installed.[0m
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ ls
+[0m[01;34mapp[0m       [01;34mbin[0m     [01;32mconfig.ru[0m  [01;32mGemfile[0m       generate  [01;34mlog[0m          [01;34mpublic[0m    [01;32mREADME.txt[0m  [01;34mspec[0m  [01;34mvendor[0m
+[01;32mapp.json[0m  [01;34mconfig[0m  [01;34mdb[0m         [01;32mGemfile.lock[0m  [01;34mlib[0m       [01;32mnitrous.txt[0m  [01;32mRakefile[0m  [01;34mscript[0m      [01;34mtmp[0m
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ gedit Gemfile
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ gedit Gemfilels[Kgedit Gemfile[K[K[K[K[K[K[K[K[K[K[K[K[Kbundle install
+Resolving dependencies...
+Using rake (10.3.2) 
+Using i18n (0.6.11) 
+Using json (1.8.1) 
+Using minitest (5.4.2) 
+Using thread_safe (0.3.4) 
+Using tzinfo (1.2.2) 
+Using activesupport (4.1.6) 
+Using builder (3.2.2) 
+Using erubis (2.7.0) 
+Using actionview (4.1.6) 
+Using rack (1.5.2) 
+Using rack-test (0.6.2) 
+Using actionpack (4.1.6) 
+Using mime-types (2.3) 
+Using mail (2.6.1) 
+Using actionmailer (4.1.6) 
+Using activemodel (4.1.6) 
+Using arel (5.0.1.20140414130214) 
+Using activerecord (4.1.6) 
+Using addressable (2.3.6) 
+Using bcrypt (3.1.7) 
+Using sass (3.2.19) 
+Using bootstrap-sass (3.2.0.2) 
+Using bundler (1.3.5) 
+Using mini_portile (0.6.0) 
+Using nokogiri (1.6.3.1) 
+Using xpath (2.0.0) 
+Using capybara (2.4.3) 
+Using ffi (1.9.5) 
+Using childprocess (0.5.5) 
+Using coffee-script-source (1.8.0) 
+Using execjs (2.2.1) 
+Using coffee-script (2.3.0) 
+Using thor (0.19.1) 
+Using railties (4.1.6) 
+Using coffee-rails (4.0.1) 
+Using diff-lcs (1.2.5) 
+Using multi_json (1.10.1) 
+Using gherkin (2.12.2) 
+Using multi_test (0.1.1) 
+Using cucumber (1.3.17) 
+Using database_cleaner (1.3.0) 
+Using orm_adapter (0.5.0) 
+Using responders (1.1.1) 
+Using warden (1.2.3) 
+Using devise (3.4.0) 
+Using factory_girl (4.4.0) 
+Using factory_girl_rails (4.4.1) 
+Using faker (1.4.3) 
+Using hike (1.2.3) 
+Using jbuilder (2.1.3) 
+Using jquery-rails (3.1.2) 
+Using launchy (2.4.2) 
+Using pg (0.17.1) 
+Using quiet_assets (1.0.3) 
+Using tilt (1.4.1) 
+Using sprockets (2.11.0) 
+Using sprockets-rails (2.1.4) 
+Using rails (4.1.6) 
+Using rails_serve_static_assets (0.0.2) 
+Using rails_stdout_logging (0.0.3) 
+Using rails_12factor (0.0.2) 
+Using rails_layout (1.0.22) 
+Using rdoc (4.1.2) 
+Using rspec-support (3.1.1) 
+Using rspec-core (3.1.5) 
+Using rspec-expectations (3.1.2) 
+Using rspec-mocks (3.1.2) 
+Using rspec-rails (3.1.0) 
+Using rubyzip (1.1.6) 
+Using sass-rails (4.0.3) 
+Using sdoc (0.4.1) 
+Using websocket (1.2.1) 
+Using selenium-webdriver (2.43.0) 
+Using spring (1.1.3) 
+Using sqlite3 (1.3.9) 
+Using turbolinks (2.4.0) 
+Using uglifier (2.5.3) 
+[32mYour bundle is complete![0m
+[32mUse `bundle show [gemname]` to see where a bundled gem is installed.[0m
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ ls
+[0m[01;34mapp[0m       [01;34mbin[0m     [01;32mconfig.ru[0m  [01;32mGemfile[0m   [01;32mGemfile.lock[0m  [01;34mlib[0m  [01;32mnitrous.txt[0m  [01;32mRakefile[0m    [01;34mscript[0m  [01;34mtmp[0m
+[01;32mapp.json[0m  [01;34mconfig[0m  [01;34mdb[0m         [01;32mGemfile~[0m  generate      [01;34mlog[0m  [01;34mpublic[0m       [01;32mREADME.txt[0m  [01;34mspec[0m    [01;34mvendor[0m
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ cd S[Kspec/
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/specgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/spec$ ls
+[0m[01;34mfactories[0m  [01;34mfeatures[0m  [01;34mmodels[0m  [01;32mrails_helper.rb[0m  [01;32mspec_helper.rb[0m  [01;34msupport[0m
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/specgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/spec$ cd features/
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/spec/featuresgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/spec/features$ rake cucumber
+(in /home/govisun/Downloads/interview_coding_exercise)
+/usr/bin/ruby1.9.1 -S bundle exec cucumber  --profile default
+No such file or directory - features. Please create a features directory to get started. (Errno::ENOENT)
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/spec/featuresgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/spec/features$ ls
+[0m[01;34musers[0m  [01;34mvisitors[0m
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/spec/featuresgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/spec/features$ cd users/
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/spec/features/usersgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/spec/features/users$ ls
+[0m[01;32msign_in_spec.rb[0m  [01;32msign_out_spec.rb[0m  [01;32muser_delete_spec.rb[0m  [01;32muser_edit_spec.rb[0m  [01;32muser_index_spec.rb[0m  [01;32muser_show_spec.rb[0m
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/spec/features/usersgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/spec/features/users$ rake cucumber
+(in /home/govisun/Downloads/interview_coding_exercise)
+/usr/bin/ruby1.9.1 -S bundle exec cucumber  --profile default
+No such file or directory - features. Please create a features directory to get started. (Errno::ENOENT)
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/spec/features/usersgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/spec/features/users$ ls
+[0m[01;32msign_in_spec.rb[0m  [01;32msign_out_spec.rb[0m  [01;32muser_delete_spec.rb[0m  [01;32muser_edit_spec.rb[0m  [01;32muser_index_spec.rb[0m  [01;32muser_show_spec.rb[0m
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/spec/features/usersgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/spec/features/users$ cd ../..
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/specgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/spec$ ls
+[0m[01;34mfactories[0m  [01;34mfeatures[0m  [01;34mmodels[0m  [01;32mrails_helper.rb[0m  [01;32mspec_helper.rb[0m  [01;34msupport[0m
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/specgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/spec$ rake cucumber
+(in /home/govisun/Downloads/interview_coding_exercise)
+/usr/bin/ruby1.9.1 -S bundle exec cucumber  --profile default
+No such file or directory - features. Please create a features directory to get started. (Errno::ENOENT)
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/specgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/spec$ cd ..
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle install
+Fetching gem metadata from https://rubygems.org/.........
+Resolving dependencies...
+Enter your password to install the bundled RubyGems to your system: 
+Using rake (10.3.2) 
+Using i18n (0.6.11) 
+Using json (1.8.1) 
+Using minitest (5.4.2) 
+Using thread_safe (0.3.4) 
+Using tzinfo (1.2.2) 
+Using activesupport (4.1.6) 
+Using builder (3.2.2) 
+Using erubis (2.7.0) 
+Using actionview (4.1.6) 
+Using rack (1.5.2) 
+Using rack-test (0.6.2) 
+Using actionpack (4.1.6) 
+Using mime-types (2.3) 
+Using mail (2.6.1) 
+Using actionmailer (4.1.6) 
+Using activemodel (4.1.6) 
+Using arel (5.0.1.20140414130214) 
+Using activerecord (4.1.6) 
+Using addressable (2.3.6) 
+Using bcrypt (3.1.7) 
+Using sass (3.2.19) 
+Using bootstrap-sass (3.2.0.2) 
+Using bundler (1.3.5) 
+Using mini_portile (0.6.0) 
+Using nokogiri (1.6.3.1) 
+Using xpath (2.0.0) 
+Using capybara (2.4.3) 
+Using ffi (1.9.5) 
+Using childprocess (0.5.5) 
+Using coffee-script-source (1.8.0) 
+Using execjs (2.2.1) 
+Using coffee-script (2.3.0) 
+Using thor (0.19.1) 
+Using railties (4.1.6) 
+Using coffee-rails (4.0.1) 
+Using diff-lcs (1.2.5) 
+Using multi_json (1.10.1) 
+Using gherkin (2.12.2) 
+Using multi_test (0.1.1) 
+Using cucumber (1.3.17) 
+Using hike (1.2.3) 
+Using tilt (1.4.1) 
+Using sprockets (2.11.0) 
+Using sprockets-rails (2.1.4) 
+Using rails (4.1.6) 
+Installing cucumber-rails (1.4.2) 
+Using database_cleaner (1.3.0) 
+Using orm_adapter (0.5.0) 
+Using responders (1.1.1) 
+Using warden (1.2.3) 
+Using devise (3.4.0) 
+Using factory_girl (4.4.0) 
+Using factory_girl_rails (4.4.1) 
+Using faker (1.4.3) 
+Using jbuilder (2.1.3) 
+Using jquery-rails (3.1.2) 
+Using launchy (2.4.2) 
+Using pg (0.17.1) 
+Using quiet_assets (1.0.3) 
+Using rails_serve_static_assets (0.0.2) 
+Using rails_stdout_logging (0.0.3) 
+Using rails_12factor (0.0.2) 
+Using rails_layout (1.0.22) 
+Using rdoc (4.1.2) 
+Using rspec-support (3.1.1) 
+Using rspec-core (3.1.5) 
+Using rspec-expectations (3.1.2) 
+Using rspec-mocks (3.1.2) 
+Using rspec-rails (3.1.0) 
+Using rubyzip (1.1.6) 
+Using sass-rails (4.0.3) 
+Using sdoc (0.4.1) 
+Using websocket (1.2.1) 
+Using selenium-webdriver (2.43.0) 
+Using spring (1.1.3) 
+Using sqlite3 (1.3.9) 
+Using turbolinks (2.4.0) 
+Using uglifier (2.5.3) 
+[32mYour bundle is complete![0m
+[32mUse `bundle show [gemname]` to see where a bundled gem is installed.[0m
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ rails g cucumber:install
+WARNING: Cucumber-rails required outside of env.rb.  The rest of loading is being deferred until env.rb is called.
+  To avoid this warning, move 'gem 'cucumber-rails', :require => false' under only group :test in your Gemfile.
+  If already in the :test group, be sure you are specifying ':require => false'.
+[1m[34m   identical[0m  config/cucumber.yml
+[1m[34m   identical[0m  script/cucumber
+[1m[32m       chmod[0m  script/cucumber
+[1m[32m      create[0m  features/step_definitions
+[1m[32m      create[0m  features/step_definitions/.gitkeep
+[1m[32m      create[0m  features/support
+[1m[32m      create[0m  features/support/env.rb
+[1m[34m       exist[0m  lib/tasks
+[1m[34m   identical[0m  lib/tasks/cucumber.rake
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ rails g cucumber:install[10Pbundle install
+Resolving dependencies...
+Using rake (10.3.2) 
+Using i18n (0.6.11) 
+Using json (1.8.1) 
+Using minitest (5.4.2) 
+Using thread_safe (0.3.4) 
+Using tzinfo (1.2.2) 
+Using activesupport (4.1.6) 
+Using builder (3.2.2) 
+Using erubis (2.7.0) 
+Using actionview (4.1.6) 
+Using rack (1.5.2) 
+Using rack-test (0.6.2) 
+Using actionpack (4.1.6) 
+Using mime-types (2.3) 
+Using mail (2.6.1) 
+Using actionmailer (4.1.6) 
+Using activemodel (4.1.6) 
+Using arel (5.0.1.20140414130214) 
+Using activerecord (4.1.6) 
+Using addressable (2.3.6) 
+Using bcrypt (3.1.7) 
+Using sass (3.2.19) 
+Using bootstrap-sass (3.2.0.2) 
+Using bundler (1.3.5) 
+Using mini_portile (0.6.0) 
+Using nokogiri (1.6.3.1) 
+Using xpath (2.0.0) 
+Using capybara (2.4.3) 
+Using ffi (1.9.5) 
+Using childprocess (0.5.5) 
+Using coffee-script-source (1.8.0) 
+Using execjs (2.2.1) 
+Using coffee-script (2.3.0) 
+Using thor (0.19.1) 
+Using railties (4.1.6) 
+Using coffee-rails (4.0.1) 
+Using diff-lcs (1.2.5) 
+Using multi_json (1.10.1) 
+Using gherkin (2.12.2) 
+Using multi_test (0.1.1) 
+Using cucumber (1.3.17) 
+Using hike (1.2.3) 
+Using tilt (1.4.1) 
+Using sprockets (2.11.0) 
+Using sprockets-rails (2.1.4) 
+Using rails (4.1.6) 
+Using cucumber-rails (1.4.2) 
+Using database_cleaner (1.3.0) 
+Using orm_adapter (0.5.0) 
+Using responders (1.1.1) 
+Using warden (1.2.3) 
+Using devise (3.4.0) 
+Using factory_girl (4.4.0) 
+Using factory_girl_rails (4.4.1) 
+Using faker (1.4.3) 
+Using jbuilder (2.1.3) 
+Using jquery-rails (3.1.2) 
+Using launchy (2.4.2) 
+Using pg (0.17.1) 
+Using quiet_assets (1.0.3) 
+Using rails_serve_static_assets (0.0.2) 
+Using rails_stdout_logging (0.0.3) 
+Using rails_12factor (0.0.2) 
+Using rails_layout (1.0.22) 
+Using rdoc (4.1.2) 
+Using rspec-support (3.1.1) 
+Using rspec-core (3.1.5) 
+Using rspec-expectations (3.1.2) 
+Using rspec-mocks (3.1.2) 
+Using rspec-rails (3.1.0) 
+Using rubyzip (1.1.6) 
+Using sass-rails (4.0.3) 
+Using sdoc (0.4.1) 
+Using websocket (1.2.1) 
+Using selenium-webdriver (2.43.0) 
+Using spring (1.1.3) 
+Using sqlite3 (1.3.9) 
+Using turbolinks (2.4.0) 
+Using uglifier (2.5.3) 
+[32mYour bundle is complete![0m
+[32mUse `bundle show [gemname]` to see where a bundled gem is installed.[0m
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle installrails g cucumber:install
+WARNING: Cucumber-rails required outside of env.rb.  The rest of loading is being deferred until env.rb is called.
+  To avoid this warning, move 'gem 'cucumber-rails', :require => false' under only group :test in your Gemfile.
+  If already in the :test group, be sure you are specifying ':require => false'.
+[1m[34m   identical[0m  config/cucumber.yml
+[1m[34m   identical[0m  script/cucumber
+[1m[32m       chmod[0m  script/cucumber
+[1m[34m       exist[0m  features/step_definitions
+[1m[34m   identical[0m  features/step_definitions/.gitkeep
+[1m[34m       exist[0m  features/support
+[1m[34m   identical[0m  features/support/env.rb
+[1m[34m       exist[0m  lib/tasks
+[1m[34m   identical[0m  lib/tasks/cucumber.rake
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ ls
+[0m[01;34mapp[0m       [01;34mbin[0m     [01;32mconfig.ru[0m  [01;34mfeatures[0m  [01;32mGemfile~[0m      generate  [01;34mlog[0m          [01;34mpublic[0m    [01;32mREADME.txt[0m  [01;34mspec[0m  [01;34mvendor[0m
+[01;32mapp.json[0m  [01;34mconfig[0m  [01;34mdb[0m         [01;32mGemfile[0m   [01;32mGemfile.lock[0m  [01;34mlib[0m       [01;32mnitrous.txt[0m  [01;32mRakefile[0m  [01;34mscript[0m      [01;34mtmp[0m
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ cd script/
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/scriptgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/script$ ls
+[0m[01;32mcucumber[0m
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/scriptgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/script$ cd cu
+bash: cd: cu: No such file or directory
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/scriptgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/script$ cd cu[K[K[K[K[Kcat cucumber 
+#!/usr/bin/env ruby
+
+vendored_cucumber_bin = Dir["#{File.dirname(__FILE__)}/../vendor/{gems,plugins}/cucumber*/bin/cucumber"].first
+if vendored_cucumber_bin
+  load File.expand_path(vendored_cucumber_bin)
+else
+  require 'rubygems' unless ENV['NO_RUBYGEMS']
+  require 'cucumber'
+  load Cucumber::BINARY
+end
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/scriptgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/script$ ls
+[0m[01;32mcucumber[0m
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/scriptgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/script$ cd ..
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ cd ..
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloadsgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads$ ls
+[0m[01;31mgoogle-chrome-stable_current_i386.deb[0m  [01;34m__MACOSX[0m                  [01;31mskype-ubuntu-lucid_4.3.0.37-1_i386.deb[0m  Wanna be a Ruby Engineer.docx
+[01;34minterview_coding_exercise[0m              [01;31mRubyMine-6.3.3(1).tar.gz[0m  [01;31msublime_text_3_build_3065_x32.tar.bz2[0m
+[01;31minterview_coding_exercise.zip[0m          [01;31mRubyMine-6.3.3.tar.gz[0m     Sunitha_Malipeddi_Resume.doc
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloadsgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads$ cd interview_coding_exercise/
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ ls
+[0m[01;34mapp[0m       [01;34mbin[0m     [01;32mconfig.ru[0m  [01;34mfeatures[0m  [01;32mGemfile~[0m      generate  [01;34mlog[0m          [01;34mpublic[0m    [01;32mREADME.txt[0m  [01;34mspec[0m  [01;34mvendor[0m
+[01;32mapp.json[0m  [01;34mconfig[0m  [01;34mdb[0m         [01;32mGemfile[0m   [01;32mGemfile.lock[0m  [01;34mlib[0m       [01;32mnitrous.txt[0m  [01;32mRakefile[0m  [01;34mscript[0m      [01;34mtmp[0m
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ cd config/
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/configgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/config$ ls
+[0m[01;32mapplication.rb[0m  cucumber.yml  [01;32mdatabase.yml.example[0m  [01;34menvironments[0m  [01;34mlocales[0m    [01;32msecrets.yml[0m
+[01;32mboot.rb[0m         database.yml  [01;32menvironment.rb[0m        [01;34minitializers[0m  [01;32mroutes.rb[0m
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/configgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/config$ cat cucumber.yml 
+<%
+rerun = File.file?('rerun.txt') ? IO.read('rerun.txt') : ""
+rerun_opts = rerun.to_s.strip.empty? ? "--format #{ENV['CUCUMBER_FORMAT'] || 'progress'} features" : "--format #{ENV['CUCUMBER_FORMAT'] || 'pretty'} #{rerun}"
+std_opts = "--format #{ENV['CUCUMBER_FORMAT'] || 'pretty'} --strict --tags ~@wip"
+%>
+default: <%= std_opts %> features
+wip: --tags @wip:3 --wip features
+rerun: <%= rerun_opts %> --format rerun --out rerun.txt --strict --tags ~@wip
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/configgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/config$ cd ..
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ ls
+[0m[01;34mapp[0m       [01;34mbin[0m     [01;32mconfig.ru[0m  [01;34mfeatures[0m  [01;32mGemfile~[0m      generate  [01;34mlog[0m          [01;34mpublic[0m    [01;32mREADME.txt[0m  [01;34mspec[0m  [01;34mvendor[0m
+[01;32mapp.json[0m  [01;34mconfig[0m  [01;34mdb[0m         [01;32mGemfile[0m   [01;32mGemfile.lock[0m  [01;34mlib[0m       [01;32mnitrous.txt[0m  [01;32mRakefile[0m  [01;34mscript[0m      [01;34mtmp[0m
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ cd cp[K[Kfeatures/
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/featuresgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/features$ ls
+[0m[01;34mstep_definitions[0m  [01;34msupport[0m
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/featuresgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/features$ cd step_definitions/
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/features/step_definitionsgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/features/step_definitions$ ls
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/features/step_definitionsgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/features/step_definitions$ cd ..
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/featuresgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/features$ cd ..
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle exec cucumber
+rspec is not part of the bundle. Add it to Gemfile. (Gem::LoadError)
+/usr/lib/ruby/vendor_ruby/bundler/rubygems_integration.rb:214:in `block in replace_gem'
+/home/govisun/Downloads/interview_coding_exercise/config/environments/test.rb:40:in `block in <top (required)>'
+/var/lib/gems/1.9.1/gems/railties-4.1.6/lib/rails/railtie.rb:210:in `instance_eval'
+/var/lib/gems/1.9.1/gems/railties-4.1.6/lib/rails/railtie.rb:210:in `configure'
+/home/govisun/Downloads/interview_coding_exercise/config/environments/test.rb:1:in `<top (required)>'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:247:in `require'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:247:in `block in require'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:232:in `load_dependency'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:247:in `require'
+/var/lib/gems/1.9.1/gems/railties-4.1.6/lib/rails/engine.rb:594:in `block (2 levels) in <class:Engine>'
+/var/lib/gems/1.9.1/gems/railties-4.1.6/lib/rails/engine.rb:593:in `each'
+/var/lib/gems/1.9.1/gems/railties-4.1.6/lib/rails/engine.rb:593:in `block in <class:Engine>'
+/var/lib/gems/1.9.1/gems/railties-4.1.6/lib/rails/initializable.rb:30:in `instance_exec'
+/var/lib/gems/1.9.1/gems/railties-4.1.6/lib/rails/initializable.rb:30:in `run'
+/var/lib/gems/1.9.1/gems/railties-4.1.6/lib/rails/initializable.rb:55:in `block in run_initializers'
+/usr/lib/ruby/1.9.1/tsort.rb:150:in `block in tsort_each'
+/usr/lib/ruby/1.9.1/tsort.rb:183:in `block (2 levels) in each_strongly_connected_component'
+/usr/lib/ruby/1.9.1/tsort.rb:210:in `block (2 levels) in each_strongly_connected_component_from'
+/usr/lib/ruby/1.9.1/tsort.rb:219:in `each_strongly_connected_component_from'
+/usr/lib/ruby/1.9.1/tsort.rb:209:in `block in each_strongly_connected_component_from'
+/var/lib/gems/1.9.1/gems/railties-4.1.6/lib/rails/initializable.rb:44:in `each'
+/var/lib/gems/1.9.1/gems/railties-4.1.6/lib/rails/initializable.rb:44:in `tsort_each_child'
+/usr/lib/ruby/1.9.1/tsort.rb:203:in `each_strongly_connected_component_from'
+/usr/lib/ruby/1.9.1/tsort.rb:182:in `block in each_strongly_connected_component'
+/usr/lib/ruby/1.9.1/tsort.rb:180:in `each'
+/usr/lib/ruby/1.9.1/tsort.rb:180:in `each_strongly_connected_component'
+/usr/lib/ruby/1.9.1/tsort.rb:148:in `tsort_each'
+/var/lib/gems/1.9.1/gems/railties-4.1.6/lib/rails/initializable.rb:54:in `run_initializers'
+/var/lib/gems/1.9.1/gems/railties-4.1.6/lib/rails/application.rb:300:in `initialize!'
+/var/lib/gems/1.9.1/gems/cucumber-rails-1.4.2/lib/cucumber/rails/application.rb:15:in `initialize!'
+/home/govisun/Downloads/interview_coding_exercise/config/environment.rb:5:in `<top (required)>'
+/var/lib/gems/1.9.1/gems/cucumber-rails-1.4.2/lib/cucumber/rails.rb:7:in `require'
+/var/lib/gems/1.9.1/gems/cucumber-rails-1.4.2/lib/cucumber/rails.rb:7:in `<top (required)>'
+/home/govisun/Downloads/interview_coding_exercise/features/support/env.rb:7:in `require'
+/home/govisun/Downloads/interview_coding_exercise/features/support/env.rb:7:in `<top (required)>'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/rb_support/rb_language.rb:95:in `load'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/rb_support/rb_language.rb:95:in `load_code_file'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:180:in `load_file'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:83:in `block in load_files!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:82:in `each'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:82:in `load_files!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime.rb:184:in `load_step_definitions'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime.rb:42:in `run!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/cli/main.rb:47:in `execute!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/bin/cucumber:13:in `<top (required)>'
+/usr/local/bin/cucumber:23:in `load'
+/usr/local/bin/cucumber:23:in `<main>'
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ 
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle install
+[31mGemfile syntax error:
+  gem 'factory_girl_rails'rspec
+                               ^[0m
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle install
+Using rake (10.3.2) 
+Using i18n (0.6.11) 
+Using json (1.8.1) 
+Using minitest (5.4.2) 
+Using thread_safe (0.3.4) 
+Using tzinfo (1.2.2) 
+Using activesupport (4.1.6) 
+Using builder (3.2.2) 
+Using erubis (2.7.0) 
+Using actionview (4.1.6) 
+Using rack (1.5.2) 
+Using rack-test (0.6.2) 
+Using actionpack (4.1.6) 
+Using mime-types (2.3) 
+Using mail (2.6.1) 
+Using actionmailer (4.1.6) 
+Using activemodel (4.1.6) 
+Using arel (5.0.1.20140414130214) 
+Using activerecord (4.1.6) 
+Using addressable (2.3.6) 
+Using bcrypt (3.1.7) 
+Using sass (3.2.19) 
+Using bootstrap-sass (3.2.0.2) 
+Using mini_portile (0.6.0) 
+Using nokogiri (1.6.3.1) 
+Using xpath (2.0.0) 
+Using capybara (2.4.3) 
+Using ffi (1.9.5) 
+Using childprocess (0.5.5) 
+Using coffee-script-source (1.8.0) 
+Using execjs (2.2.1) 
+Using coffee-script (2.3.0) 
+Using thor (0.19.1) 
+Using railties (4.1.6) 
+Using coffee-rails (4.0.1) 
+Using diff-lcs (1.2.5) 
+Using multi_json (1.10.1) 
+Using gherkin (2.12.2) 
+Using multi_test (0.1.1) 
+Using cucumber (1.3.17) 
+Using bundler (1.3.5) 
+Using hike (1.2.3) 
+Using tilt (1.4.1) 
+Using sprockets (2.11.0) 
+Using sprockets-rails (2.1.4) 
+Using rails (4.1.6) 
+Using cucumber-rails (1.4.2) 
+Using database_cleaner (1.3.0) 
+Using orm_adapter (0.5.0) 
+Using responders (1.1.1) 
+Using warden (1.2.3) 
+Using devise (3.4.0) 
+Using factory_girl (4.4.0) 
+Using factory_girl_rails (4.4.1) 
+Using faker (1.4.3) 
+Using jbuilder (2.1.3) 
+Using jquery-rails (3.1.2) 
+Using launchy (2.4.2) 
+Using pg (0.17.1) 
+Using quiet_assets (1.0.3) 
+Using rails_serve_static_assets (0.0.2) 
+Using rails_stdout_logging (0.0.3) 
+Using rails_12factor (0.0.2) 
+Using rails_layout (1.0.22) 
+Using rdoc (4.1.2) 
+Using rspec-support (3.1.1) 
+Using rspec-core (3.1.5) 
+Using rspec-expectations (3.1.2) 
+Using rspec-mocks (3.1.2) 
+Using rspec-rails (3.1.0) 
+Using rubyzip (1.1.6) 
+Using sass-rails (4.0.3) 
+Using sdoc (0.4.1) 
+Using websocket (1.2.1) 
+Using selenium-webdriver (2.43.0) 
+Using spring (1.1.3) 
+Using sqlite3 (1.3.9) 
+Using turbolinks (2.4.0) 
+Using uglifier (2.5.3) 
+[32mYour bundle is complete![0m
+[32mUse `bundle show [gemname]` to see where a bundled gem is installed.[0m
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle installexec cucumbercd ..[Kbundle exec cucumber
+rspec is not part of the bundle. Add it to Gemfile. (Gem::LoadError)
+/usr/lib/ruby/vendor_ruby/bundler/rubygems_integration.rb:214:in `block in replace_gem'
+/home/govisun/Downloads/interview_coding_exercise/config/environments/test.rb:40:in `block in <top (required)>'
+/var/lib/gems/1.9.1/gems/railties-4.1.6/lib/rails/railtie.rb:210:in `instance_eval'
+/var/lib/gems/1.9.1/gems/railties-4.1.6/lib/rails/railtie.rb:210:in `configure'
+/home/govisun/Downloads/interview_coding_exercise/config/environments/test.rb:1:in `<top (required)>'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:247:in `require'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:247:in `block in require'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:232:in `load_dependency'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:247:in `require'
+/var/lib/gems/1.9.1/gems/railties-4.1.6/lib/rails/engine.rb:594:in `block (2 levels) in <class:Engine>'
+/var/lib/gems/1.9.1/gems/railties-4.1.6/lib/rails/engine.rb:593:in `each'
+/var/lib/gems/1.9.1/gems/railties-4.1.6/lib/rails/engine.rb:593:in `block in <class:Engine>'
+/var/lib/gems/1.9.1/gems/railties-4.1.6/lib/rails/initializable.rb:30:in `instance_exec'
+/var/lib/gems/1.9.1/gems/railties-4.1.6/lib/rails/initializable.rb:30:in `run'
+/var/lib/gems/1.9.1/gems/railties-4.1.6/lib/rails/initializable.rb:55:in `block in run_initializers'
+/usr/lib/ruby/1.9.1/tsort.rb:150:in `block in tsort_each'
+/usr/lib/ruby/1.9.1/tsort.rb:183:in `block (2 levels) in each_strongly_connected_component'
+/usr/lib/ruby/1.9.1/tsort.rb:210:in `block (2 levels) in each_strongly_connected_component_from'
+/usr/lib/ruby/1.9.1/tsort.rb:219:in `each_strongly_connected_component_from'
+/usr/lib/ruby/1.9.1/tsort.rb:209:in `block in each_strongly_connected_component_from'
+/var/lib/gems/1.9.1/gems/railties-4.1.6/lib/rails/initializable.rb:44:in `each'
+/var/lib/gems/1.9.1/gems/railties-4.1.6/lib/rails/initializable.rb:44:in `tsort_each_child'
+/usr/lib/ruby/1.9.1/tsort.rb:203:in `each_strongly_connected_component_from'
+/usr/lib/ruby/1.9.1/tsort.rb:182:in `block in each_strongly_connected_component'
+/usr/lib/ruby/1.9.1/tsort.rb:180:in `each'
+/usr/lib/ruby/1.9.1/tsort.rb:180:in `each_strongly_connected_component'
+/usr/lib/ruby/1.9.1/tsort.rb:148:in `tsort_each'
+/var/lib/gems/1.9.1/gems/railties-4.1.6/lib/rails/initializable.rb:54:in `run_initializers'
+/var/lib/gems/1.9.1/gems/railties-4.1.6/lib/rails/application.rb:300:in `initialize!'
+/var/lib/gems/1.9.1/gems/cucumber-rails-1.4.2/lib/cucumber/rails/application.rb:15:in `initialize!'
+/home/govisun/Downloads/interview_coding_exercise/config/environment.rb:5:in `<top (required)>'
+/var/lib/gems/1.9.1/gems/cucumber-rails-1.4.2/lib/cucumber/rails.rb:7:in `require'
+/var/lib/gems/1.9.1/gems/cucumber-rails-1.4.2/lib/cucumber/rails.rb:7:in `<top (required)>'
+/home/govisun/Downloads/interview_coding_exercise/features/support/env.rb:7:in `require'
+/home/govisun/Downloads/interview_coding_exercise/features/support/env.rb:7:in `<top (required)>'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/rb_support/rb_language.rb:95:in `load'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/rb_support/rb_language.rb:95:in `load_code_file'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:180:in `load_file'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:83:in `block in load_files!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:82:in `each'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:82:in `load_files!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime.rb:184:in `load_step_definitions'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime.rb:42:in `run!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/cli/main.rb:47:in `execute!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/bin/cucumber:13:in `<top (required)>'
+/usr/local/bin/cucumber:23:in `load'
+/usr/local/bin/cucumber:23:in `<main>'
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ 
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle exec cucumber[6Pinstall
+Resolving dependencies...
+Using rake (10.3.2) 
+Using i18n (0.6.11) 
+Using json (1.8.1) 
+Using minitest (5.4.2) 
+Using thread_safe (0.3.4) 
+Using tzinfo (1.2.2) 
+Using activesupport (4.1.6) 
+Using builder (3.2.2) 
+Using erubis (2.7.0) 
+Using actionview (4.1.6) 
+Using rack (1.5.2) 
+Using rack-test (0.6.2) 
+Using actionpack (4.1.6) 
+Using mime-types (2.3) 
+Using mail (2.6.1) 
+Using actionmailer (4.1.6) 
+Using activemodel (4.1.6) 
+Using arel (5.0.1.20140414130214) 
+Using activerecord (4.1.6) 
+Using addressable (2.3.6) 
+Using bcrypt (3.1.7) 
+Using sass (3.2.19) 
+Using bootstrap-sass (3.2.0.2) 
+Using bundler (1.3.5) 
+Using mini_portile (0.6.0) 
+Using nokogiri (1.6.3.1) 
+Using xpath (2.0.0) 
+Using capybara (2.4.3) 
+Using ffi (1.9.5) 
+Using childprocess (0.5.5) 
+Using coffee-script-source (1.8.0) 
+Using execjs (2.2.1) 
+Using coffee-script (2.3.0) 
+Using thor (0.19.1) 
+Using railties (4.1.6) 
+Using coffee-rails (4.0.1) 
+Using diff-lcs (1.2.5) 
+Using multi_json (1.10.1) 
+Using gherkin (2.12.2) 
+Using multi_test (0.1.1) 
+Using cucumber (1.3.17) 
+Using hike (1.2.3) 
+Using tilt (1.4.1) 
+Using sprockets (2.11.0) 
+Using sprockets-rails (2.1.4) 
+Using rails (4.1.6) 
+Using cucumber-rails (1.4.2) 
+Using database_cleaner (1.3.0) 
+Using orm_adapter (0.5.0) 
+Using responders (1.1.1) 
+Using warden (1.2.3) 
+Using devise (3.4.0) 
+Using factory_girl (4.4.0) 
+Using factory_girl_rails (4.4.1) 
+Using faker (1.4.3) 
+Using jbuilder (2.1.3) 
+Using jquery-rails (3.1.2) 
+Using launchy (2.4.2) 
+Using pg (0.17.1) 
+Using quiet_assets (1.0.3) 
+Using rails_serve_static_assets (0.0.2) 
+Using rails_stdout_logging (0.0.3) 
+Using rails_12factor (0.0.2) 
+Using rails_layout (1.0.22) 
+Using rdoc (4.1.2) 
+Using rspec-support (3.1.1) 
+Using rspec-core (3.1.5) 
+Using rspec-expectations (3.1.2) 
+Using rspec-mocks (3.1.2) 
+Using rspec (3.1.0) 
+Using rspec-rails (3.1.0) 
+Using rubyzip (1.1.6) 
+Using sass-rails (4.0.3) 
+Using sdoc (0.4.1) 
+Using websocket (1.2.1) 
+Using selenium-webdriver (2.43.0) 
+Using spring (1.1.3) 
+Using sqlite3 (1.3.9) 
+Using turbolinks (2.4.0) 
+Using uglifier (2.5.3) 
+[32mYour bundle is complete![0m
+[32mUse `bundle show [gemname]` to see where a bundled gem is installed.[0m
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle installexec cucumber
+webrat is not part of the bundle. Add it to Gemfile. (Gem::LoadError)
+/usr/lib/ruby/vendor_ruby/bundler/rubygems_integration.rb:214:in `block in replace_gem'
+/home/govisun/Downloads/interview_coding_exercise/config/environments/test.rb:42:in `block in <top (required)>'
+/var/lib/gems/1.9.1/gems/railties-4.1.6/lib/rails/railtie.rb:210:in `instance_eval'
+/var/lib/gems/1.9.1/gems/railties-4.1.6/lib/rails/railtie.rb:210:in `configure'
+/home/govisun/Downloads/interview_coding_exercise/config/environments/test.rb:1:in `<top (required)>'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:247:in `require'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:247:in `block in require'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:232:in `load_dependency'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:247:in `require'
+/var/lib/gems/1.9.1/gems/railties-4.1.6/lib/rails/engine.rb:594:in `block (2 levels) in <class:Engine>'
+/var/lib/gems/1.9.1/gems/railties-4.1.6/lib/rails/engine.rb:593:in `each'
+/var/lib/gems/1.9.1/gems/railties-4.1.6/lib/rails/engine.rb:593:in `block in <class:Engine>'
+/var/lib/gems/1.9.1/gems/railties-4.1.6/lib/rails/initializable.rb:30:in `instance_exec'
+/var/lib/gems/1.9.1/gems/railties-4.1.6/lib/rails/initializable.rb:30:in `run'
+/var/lib/gems/1.9.1/gems/railties-4.1.6/lib/rails/initializable.rb:55:in `block in run_initializers'
+/usr/lib/ruby/1.9.1/tsort.rb:150:in `block in tsort_each'
+/usr/lib/ruby/1.9.1/tsort.rb:183:in `block (2 levels) in each_strongly_connected_component'
+/usr/lib/ruby/1.9.1/tsort.rb:210:in `block (2 levels) in each_strongly_connected_component_from'
+/usr/lib/ruby/1.9.1/tsort.rb:219:in `each_strongly_connected_component_from'
+/usr/lib/ruby/1.9.1/tsort.rb:209:in `block in each_strongly_connected_component_from'
+/var/lib/gems/1.9.1/gems/railties-4.1.6/lib/rails/initializable.rb:44:in `each'
+/var/lib/gems/1.9.1/gems/railties-4.1.6/lib/rails/initializable.rb:44:in `tsort_each_child'
+/usr/lib/ruby/1.9.1/tsort.rb:203:in `each_strongly_connected_component_from'
+/usr/lib/ruby/1.9.1/tsort.rb:182:in `block in each_strongly_connected_component'
+/usr/lib/ruby/1.9.1/tsort.rb:180:in `each'
+/usr/lib/ruby/1.9.1/tsort.rb:180:in `each_strongly_connected_component'
+/usr/lib/ruby/1.9.1/tsort.rb:148:in `tsort_each'
+/var/lib/gems/1.9.1/gems/railties-4.1.6/lib/rails/initializable.rb:54:in `run_initializers'
+/var/lib/gems/1.9.1/gems/railties-4.1.6/lib/rails/application.rb:300:in `initialize!'
+/var/lib/gems/1.9.1/gems/cucumber-rails-1.4.2/lib/cucumber/rails/application.rb:15:in `initialize!'
+/home/govisun/Downloads/interview_coding_exercise/config/environment.rb:5:in `<top (required)>'
+/var/lib/gems/1.9.1/gems/cucumber-rails-1.4.2/lib/cucumber/rails.rb:7:in `require'
+/var/lib/gems/1.9.1/gems/cucumber-rails-1.4.2/lib/cucumber/rails.rb:7:in `<top (required)>'
+/home/govisun/Downloads/interview_coding_exercise/features/support/env.rb:7:in `require'
+/home/govisun/Downloads/interview_coding_exercise/features/support/env.rb:7:in `<top (required)>'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/rb_support/rb_language.rb:95:in `load'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/rb_support/rb_language.rb:95:in `load_code_file'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:180:in `load_file'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:83:in `block in load_files!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:82:in `each'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:82:in `load_files!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime.rb:184:in `load_step_definitions'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime.rb:42:in `run!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/cli/main.rb:47:in `execute!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/bin/cucumber:13:in `<top (required)>'
+/usr/local/bin/cucumber:23:in `load'
+/usr/local/bin/cucumber:23:in `<main>'
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ 
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle exec cucumber[6Pinstall
+Resolving dependencies...
+Using rake (10.3.2) 
+Using i18n (0.6.11) 
+Using json (1.8.1) 
+Using minitest (5.4.2) 
+Using thread_safe (0.3.4) 
+Using tzinfo (1.2.2) 
+Using activesupport (4.1.6) 
+Using builder (3.2.2) 
+0Using erubis (2.7.0) 
+Using actionview (4.1.6) 
+Using rack (1.5.2) 
+Using rack-test (0.6.2) 
+Using actionpack (4.1.6) 
+Using mime-types (2.3) 
+Using mail (2.6.1) 
+Using actionmailer (4.1.6) 
+Using activemodel (4.1.6) 
+Using arel (5.0.1.20140414130214) 
+Using activerecord (4.1.6) 
+Using addressable (2.3.6) 
+Using bcrypt (3.1.7) 
+Using sass (3.2.19) 
+Using bootstrap-sass (3.2.0.2) 
+Using bundler (1.3.5) 
+Using mini_portile (0.6.0) 
+Using nokogiri (1.6.3.1) 
+Using xpath (2.0.0) 
+Using capybara (2.4.3) 
+Using ffi (1.9.5) 
+Using childprocess (0.5.5) 
+Using coffee-script-source (1.8.0) 
+Using execjs (2.2.1) 
+Using coffee-script (2.3.0) 
+Using thor (0.19.1) 
+Using railties (4.1.6) 
+Using coffee-rails (4.0.1) 
+Using diff-lcs (1.2.5) 
+Using multi_json (1.10.1) 
+Using gherkin (2.12.2) 
+Using multi_test (0.1.1) 
+Using cucumber (1.3.17) 
+Using hike (1.2.3) 
+Using tilt (1.4.1) 
+Using sprockets (2.11.0) 
+Using sprockets-rails (2.1.4) 
+Using rails (4.1.6) 
+Using cucumber-rails (1.4.2) 
+Using database_cleaner (1.3.0) 
+Using orm_adapter (0.5.0) 
+Using responders (1.1.1) 
+Using warden (1.2.3) 
+Using devise (3.4.0) 
+Using factory_girl (4.4.0) 
+Using factory_girl_rails (4.4.1) 
+Using faker (1.4.3) 
+Using jbuilder (2.1.3) 
+Using jquery-rails (3.1.2) 
+Using launchy (2.4.2) 
+Using pg (0.17.1) 
+Using quiet_assets (1.0.3) 
+Using rails_serve_static_assets (0.0.2) 
+Using rails_stdout_logging (0.0.3) 
+Using rails_12factor (0.0.2) 
+Using rails_layout (1.0.22) 
+Using rdoc (4.1.2) 
+Using rspec-support (3.1.1) 
+Using rspec-core (3.1.5) 
+Using rspec-expectations (3.1.2) 
+Using rspec-mocks (3.1.2) 
+Using rspec (3.1.0) 
+Using rspec-rails (3.1.0) 
+Using rubyzip (1.1.6) 
+Using sass-rails (4.0.3) 
+Using sdoc (0.4.1) 
+Using websocket (1.2.1) 
+Using selenium-webdriver (2.43.0) 
+Using spring (1.1.3) 
+Using sqlite3 (1.3.9) 
+Using turbolinks (2.4.0) 
+Using uglifier (2.5.3) 
+Using webrat (0.7.3) 
+[32mYour bundle is complete![0m
+[32mUse `bundle show [gemname]` to see where a bundled gem is installed.[0m
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ 0bundle installexec cucumber
+/home/govisun/Downloads/interview_coding_exercise/features/support/paths.rb:1: syntax error, unexpected keyword_when
+when /the login page/
+    ^ (SyntaxError)
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:241:in `load'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:241:in `block in load'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:232:in `load_dependency'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:241:in `load'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/rb_support/rb_language.rb:95:in `load_code_file'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:180:in `load_file'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:83:in `block in load_files!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:82:in `each'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:82:in `load_files!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime.rb:184:in `load_step_definitions'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime.rb:42:in `run!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/cli/main.rb:47:in `execute!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/bin/cucumber:13:in `<top (required)>'
+/usr/local/bin/cucumber:23:in `load'
+/usr/local/bin/cucumber:23:in `<main>'
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle exec cucumber
+/home/govisun/Downloads/interview_coding_exercise/features/support/paths.rb:1: syntax error, unexpected keyword_when
+when /^the login page/
+    ^ (SyntaxError)
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:241:in `load'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:241:in `block in load'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:232:in `load_dependency'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:241:in `load'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/rb_support/rb_language.rb:95:in `load_code_file'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:180:in `load_file'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:83:in `block in load_files!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:82:in `each'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:82:in `load_files!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime.rb:184:in `load_step_definitions'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime.rb:42:in `run!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/cli/main.rb:47:in `execute!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/bin/cucumber:13:in `<top (required)>'
+/usr/local/bin/cucumber:23:in `load'
+/usr/local/bin/cucumber:23:in `<main>'
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle exec cucumber
+features/login.feature: Parse error at features/login.feature:1. Found scenario when expecting one of: comment, feature, tag. (Current state: root). (Gherkin::Parser::ParseError)
+/var/lib/gems/1.9.1/gems/gherkin-2.12.2/lib/gherkin/parser/parser.rb:59:in `block in event'
+/var/lib/gems/1.9.1/gems/gherkin-2.12.2/lib/gherkin/parser/parser.rb:101:in `event'
+/var/lib/gems/1.9.1/gems/gherkin-2.12.2/lib/gherkin/parser/parser.rb:57:in `event'
+/var/lib/gems/1.9.1/gems/gherkin-2.12.2/lib/gherkin/parser/parser.rb:49:in `block (2 levels) in <class:Parser>'
+/var/lib/gems/1.9.1/gems/gherkin-2.12.2/lib/gherkin/lexer/i18n_lexer.rb:24:in `scan'
+/var/lib/gems/1.9.1/gems/gherkin-2.12.2/lib/gherkin/lexer/i18n_lexer.rb:24:in `scan'
+/var/lib/gems/1.9.1/gems/gherkin-2.12.2/lib/gherkin/parser/parser.rb:33:in `parse'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/feature_file.rb:37:in `parse'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/features_loader.rb:28:in `block in load'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/features_loader.rb:26:in `each'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/features_loader.rb:26:in `load'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/features_loader.rb:14:in `features'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime.rb:179:in `features'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime.rb:49:in `run!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/cli/main.rb:47:in `execute!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/bin/cucumber:13:in `<top (required)>'
+/usr/local/bin/cucumber:23:in `load'
+/usr/local/bin/cucumber:23:in `<main>'
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle exec cucumber
+Using the default profile...
+Feature: Login page
+
+  Scenario: Login[90m                               # features/login.feature:2[0m
+    [32mGiven a valid user[90m                          # features/step_definitions/user_steps.rb:1[0m[0m
+    [33mWhen I go to the login page[90m                 # features/login.feature:4[0m[0m
+[33m      Undefined step: "I go to the login page" (Cucumber::Undefined)[0m
+[33m      features/login.feature:4:in `When I go to the login page'[0m
+    [33mAnd I fill in the following:[90m                # features/login.feature:5[0m[0m
+      | [33mEmail   [0m[0m |[0m [33mminikermit@hotmail.com[0m[0m |[0m
+      | [33mPassword[0m[0m |[0m [33m12345678              [0m[0m |[0m
+[33m      Undefined step: "I fill in the following:" (Cucumber::Undefined)[0m
+[33m      features/login.feature:5:in `And I fill in the following:'[0m
+    [33mAnd I press "Sign in"[90m                       # features/login.feature:8[0m[0m
+[33m      Undefined step: "I press "Sign in"" (Cucumber::Undefined)[0m
+[33m      features/login.feature:8:in `And I press "Sign in"'[0m
+    [33mThen I should see "Signed in successfully."[90m # features/login.feature:9[0m[0m
+[33m      Undefined step: "I should see "Signed in successfully."" (Cucumber::Undefined)[0m
+[33m      features/login.feature:9:in `Then I should see "Signed in successfully."'[0m
+
+1 scenario ([33m1 undefined[0m)
+5 steps ([33m4 undefined[0m, [32m1 passed[0m)
+0m0.727s
+[33m[0m
+[33mYou can implement step definitions for undefined steps with these snippets:[0m
+[33m[0m
+[33mWhen(/^I go to the login page$/) do[0m
+[33m  pending # express the regexp above with the code you wish you had[0m
+[33mend[0m
+[33m[0m
+[33mWhen(/^I fill in the following:$/) do |table|[0m
+[33m  # table is a Cucumber::Ast::Table[0m
+[33m  pending # express the regexp above with the code you wish you had[0m
+[33mend[0m
+[33m[0m
+[33mWhen(/^I press "(.*?)"$/) do |arg1|[0m
+[33m  pending # express the regexp above with the code you wish you had[0m
+[33mend[0m
+[33m[0m
+[33mThen(/^I should see "(.*?)"$/) do |arg1|[0m
+[33m  pending # express the regexp above with the code you wish you had[0m
+[33mend[0m
+
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ 
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle exec cucumber
+Using the default profile...
+Feature: Login page
+
+  Scenario: Login[90m                               # features/login.feature:2[0m
+    [32mGiven a valid user[90m                          # features/step_definitions/user_steps.rb:1[0m[0m
+    [33mWhen I go to the visitor page[90m               # features/login.feature:4[0m[0m
+[33m      Undefined step: "I go to the visitor page" (Cucumber::Undefined)[0m
+[33m      features/login.feature:4:in `When I go to the visitor page'[0m
+    [33mAnd I fill in the following:[90m                # features/login.feature:5[0m[0m
+      | [33mEmail   [0m[0m |[0m [33mminikermit@hotmail.com[0m[0m |[0m
+      | [33mPassword[0m[0m |[0m [33m12345678              [0m[0m |[0m
+[33m      Undefined step: "I fill in the following:" (Cucumber::Undefined)[0m
+[33m      features/login.feature:5:in `And I fill in the following:'[0m
+    [33mAnd I press "Sign in"[90m                       # features/login.feature:8[0m[0m
+[33m      Undefined step: "I press "Sign in"" (Cucumber::Undefined)[0m
+[33m      features/login.feature:8:in `And I press "Sign in"'[0m
+    [33mThen I should see "Signed in successfully."[90m # features/login.feature:9[0m[0m
+[33m      Undefined step: "I should see "Signed in successfully."" (Cucumber::Undefined)[0m
+[33m      features/login.feature:9:in `Then I should see "Signed in successfully."'[0m
+
+1 scenario ([33m1 undefined[0m)
+5 steps ([33m4 undefined[0m, [32m1 passed[0m)
+0m0.513s
+[33m[0m
+[33mYou can implement step definitions for undefined steps with these snippets:[0m
+[33m[0m
+[33mWhen(/^I go to the visitor page$/) do[0m
+[33m  pending # express the regexp above with the code you wish you had[0m
+[33mend[0m
+[33m[0m
+[33mWhen(/^I fill in the following:$/) do |table|[0m
+[33m  # table is a Cucumber::Ast::Table[0m
+[33m  pending # express the regexp above with the code you wish you had[0m
+[33mend[0m
+[33m[0m
+[33mWhen(/^I press "(.*?)"$/) do |arg1|[0m
+[33m  pending # express the regexp above with the code you wish you had[0m
+[33mend[0m
+[33m[0m
+[33mThen(/^I should see "(.*?)"$/) do |arg1|[0m
+[33m  pending # express the regexp above with the code you wish you had[0m
+[33mend[0m
+
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ 
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle exec cucumber
+/home/govisun/Downloads/interview_coding_exercise/features/step_definitions/user_steps.rb:12: formal argument cannot be a constant
+....*?)" with "(.*?)"$/) do |Email,minikermit@hotmail.com|
+...                               ^
+/home/govisun/Downloads/interview_coding_exercise/features/step_definitions/user_steps.rb:12: syntax error, unexpected tIVAR, expecting '|'
+.../) do |Email,minikermit@hotmail.com|
+...                               ^
+/home/govisun/Downloads/interview_coding_exercise/features/step_definitions/user_steps.rb:13: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+  fill_in "Email", :with => "minikermit@hotmail.com"
+           ^
+/home/govisun/Downloads/interview_coding_exercise/features/step_definitions/user_steps.rb:13: syntax error, unexpected ',', expecting $end
+  fill_in "Email", :with => "minikermit@hotmail.com"
+                  ^ (SyntaxError)
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:241:in `load'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:241:in `block in load'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:232:in `load_dependency'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:241:in `load'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/rb_support/rb_language.rb:95:in `load_code_file'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:180:in `load_file'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:83:in `block in load_files!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:82:in `each'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:82:in `load_files!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime.rb:184:in `load_step_definitions'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime.rb:42:in `run!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/cli/main.rb:47:in `execute!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/bin/cucumber:13:in `<top (required)>'
+/usr/local/bin/cucumber:23:in `load'
+/usr/local/bin/cucumber:23:in `<main>'
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ 
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle exec cucumber
+Using the default profile...
+Feature: Login from the visitor page
+
+  Background: [90m                     # features/login.feature:3[0m
+    [32mGiven I am on the visitor page[90m # features/step_definitions/user_steps.rb:1[0m[0m
+
+  Scenario: [90m                                    # features/login.feature:5[0m
+    [33mWhen I fill in the following:[90m               # features/login.feature:6[0m[0m
+      | [33mEmail   [0m[0m |[0m [33mminikermit@hotmail.com[0m[0m |[0m
+      | [33mPassword[0m[0m |[0m [33m12345678              [0m[0m |[0m
+[33m      Undefined step: "I fill in the following:" (Cucumber::Undefined)[0m
+[33m      features/login.feature:6:in `When I fill in the following:'[0m
+    [33mAnd I press "Sign in"[90m                       # features/login.feature:9[0m[0m
+[33m      Undefined step: "I press "Sign in"" (Cucumber::Undefined)[0m
+[33m      features/login.feature:9:in `And I press "Sign in"'[0m
+    [33mThen I should see "Signed in successfully."[90m # features/login.feature:10[0m[0m
+[33m      Undefined step: "I should see "Signed in successfully."" (Cucumber::Undefined)[0m
+[33m      features/login.feature:10:in `Then I should see "Signed in successfully."'[0m
+
+1 scenario ([33m1 undefined[0m)
+4 steps ([33m3 undefined[0m, [32m1 passed[0m)
+0m0.676s
+[33m[0m
+[33mYou can implement step definitions for undefined steps with these snippets:[0m
+[33m[0m
+[33mWhen(/^I fill in the following:$/) do |table|[0m
+[33m  # table is a Cucumber::Ast::Table[0m
+[33m  pending # express the regexp above with the code you wish you had[0m
+[33mend[0m
+[33m[0m
+[33mWhen(/^I press "(.*?)"$/) do |arg1|[0m
+[33m  pending # express the regexp above with the code you wish you had[0m
+[33mend[0m
+[33m[0m
+[33mThen(/^I should see "(.*?)"$/) do |arg1|[0m
+[33m  pending # express the regexp above with the code you wish you had[0m
+[33mend[0m
+
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle exec cucumber[6Pinstall
+Using rake (10.3.2) 
+Using i18n (0.6.11) 
+Using json (1.8.1) 
+Using minitest (5.4.2) 
+Using thread_safe (0.3.4) 
+Using tzinfo (1.2.2) 
+Using activesupport (4.1.6) 
+Using builder (3.2.2) 
+Using erubis (2.7.0) 
+Using actionview (4.1.6) 
+Using rack (1.5.2) 
+Using rack-test (0.6.2) 
+Using actionpack (4.1.6) 
+Using mime-types (2.3) 
+Using mail (2.6.1) 
+Using actionmailer (4.1.6) 
+Using activemodel (4.1.6) 
+Using arel (5.0.1.20140414130214) 
+Using activerecord (4.1.6) 
+Using addressable (2.3.6) 
+Using bcrypt (3.1.7) 
+Using sass (3.2.19) 
+Using bootstrap-sass (3.2.0.2) 
+Using mini_portile (0.6.0) 
+Using nokogiri (1.6.3.1) 
+Using xpath (2.0.0) 
+Using capybara (2.4.3) 
+Using ffi (1.9.5) 
+Using childprocess (0.5.5) 
+Using coffee-script-source (1.8.0) 
+Using execjs (2.2.1) 
+Using coffee-script (2.3.0) 
+Using thor (0.19.1) 
+Using railties (4.1.6) 
+Using coffee-rails (4.0.1) 
+Using diff-lcs (1.2.5) 
+Using multi_json (1.10.1) 
+Using gherkin (2.12.2) 
+Using multi_test (0.1.1) 
+Using cucumber (1.3.17) 
+Using bundler (1.3.5) 
+Using hike (1.2.3) 
+Using tilt (1.4.1) 
+Using sprockets (2.11.0) 
+Using sprockets-rails (2.1.4) 
+Using rails (4.1.6) 
+Using cucumber-rails (1.4.2) 
+Using database_cleaner (1.3.0) 
+Using orm_adapter (0.5.0) 
+Using responders (1.1.1) 
+Using warden (1.2.3) 
+Using devise (3.4.0) 
+Using factory_girl (4.4.0) 
+Using factory_girl_rails (4.4.1) 
+Using faker (1.4.3) 
+Using jbuilder (2.1.3) 
+Using jquery-rails (3.1.2) 
+Using launchy (2.4.2) 
+Using pg (0.17.1) 
+Using quiet_assets (1.0.3) 
+Using rails_serve_static_assets (0.0.2) 
+Using rails_stdout_logging (0.0.3) 
+Using rails_12factor (0.0.2) 
+Using rails_layout (1.0.22) 
+Using rdoc (4.1.2) 
+Using rspec-support (3.1.1) 
+Using rspec-core (3.1.5) 
+Using rspec-expectations (3.1.2) 
+Using rspec-mocks (3.1.2) 
+Using rspec (3.1.0) 
+Using rspec-rails (3.1.0) 
+Using rubyzip (1.1.6) 
+Using sass-rails (4.0.3) 
+Using sdoc (0.4.1) 
+Using websocket (1.2.1) 
+Using selenium-webdriver (2.43.0) 
+Using spring (1.1.3) 
+Using sqlite3 (1.3.9) 
+Using turbolinks (2.4.0) 
+Using uglifier (2.5.3) 
+Using webrat (0.7.3) 
+[32mYour bundle is complete![0m
+[32mUse `bundle show [gemname]` to see where a bundled gem is installed.[0m
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle installexec cucumber
+/home/govisun/Downloads/interview_coding_exercise/features/step_definitions/user_steps.rb:12: formal argument cannot be a constant
+When(/^I fill in "(.*?)" with "(.*?)"$/) do |Email,email_address|
+                                                  ^
+/home/govisun/Downloads/interview_coding_exercise/features/step_definitions/user_steps.rb:16: formal argument cannot be a constant
+When(/^I fill in "(.*?)" with "(.*?)"$/) do |Password,passwrd|
+                                                     ^
+/home/govisun/Downloads/interview_coding_exercise/features/step_definitions/user_steps.rb:24: syntax error, unexpected '^', expecting ')'
+Then(^I should see the flash message "(.*?)"$/) do |flash_mesgae|
+      ^
+/home/govisun/Downloads/interview_coding_exercise/features/step_definitions/user_steps.rb:24: syntax error, unexpected tGVAR, expecting $end
+Then(^I should see the flash message "(.*?)"$/) do |flash_mesgae|
+                                              ^ (SyntaxError)
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:241:in `load'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:241:in `block in load'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:232:in `load_dependency'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:241:in `load'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/rb_support/rb_language.rb:95:in `load_code_file'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:180:in `load_file'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:83:in `block in load_files!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:82:in `each'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:82:in `load_files!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime.rb:184:in `load_step_definitions'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime.rb:42:in `run!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/cli/main.rb:47:in `execute!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/bin/cucumber:13:in `<top (required)>'
+/usr/local/bin/cucumber:23:in `load'
+/usr/local/bin/cucumber:23:in `<main>'
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle exec cucumber
+/home/govisun/Downloads/interview_coding_exercise/features/step_definitions/user_steps.rb:24: syntax error, unexpected '^', expecting ')'
+Then(^I should see the flash message "(.*?)"$/) do |flash_mesgae|
+      ^
+/home/govisun/Downloads/interview_coding_exercise/features/step_definitions/user_steps.rb:24: syntax error, unexpected tGVAR, expecting $end
+Then(^I should see the flash message "(.*?)"$/) do |flash_mesgae|
+                                              ^ (SyntaxError)
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:241:in `load'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:241:in `block in load'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:232:in `load_dependency'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:241:in `load'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/rb_support/rb_language.rb:95:in `load_code_file'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:180:in `load_file'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:83:in `block in load_files!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:82:in `each'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:82:in `load_files!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime.rb:184:in `load_step_definitions'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime.rb:42:in `run!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/cli/main.rb:47:in `execute!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/bin/cucumber:13:in `<top (required)>'
+/usr/local/bin/cucumber:23:in `load'
+/usr/local/bin/cucumber:23:in `<main>'
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle exec cucumber
+/home/govisun/Downloads/interview_coding_exercise/features/step_definitions/user_steps.rb:24: syntax error, unexpected tIDENTIFIER, expecting '|'
+Then(/^I should see the flash message "(.*?)"$/) do |flash message|
+                                                                  ^
+/home/govisun/Downloads/interview_coding_exercise/features/step_definitions/user_steps.rb:25: syntax error, unexpected tIDENTIFIER, expecting $end
+  expect(page).to have_flash_message(flash_message)
+                                    ^ (SyntaxError)
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:241:in `load'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:241:in `block in load'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:232:in `load_dependency'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:241:in `load'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/rb_support/rb_language.rb:95:in `load_code_file'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:180:in `load_file'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:83:in `block in load_files!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:82:in `each'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:82:in `load_files!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime.rb:184:in `load_step_definitions'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime.rb:42:in `run!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/cli/main.rb:47:in `execute!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/bin/cucumber:13:in `<top (required)>'
+/usr/local/bin/cucumber:23:in `load'
+/usr/local/bin/cucumber:23:in `<main>'
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ 
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle exec cucumber
+Using the default profile...
+Feature: Login from the visitor page
+
+  Background: [90m                     # features/login.feature:3[0m
+    [32mGiven I am on the visitor page[90m # features/step_definitions/user_steps.rb:1[0m[0m
+
+  Scenario: [90m                                    # features/login.feature:5[0m
+    [33mWhen I fill in the following:[90m               # features/login.feature:6[0m[0m
+      | [33mEmail   [0m[0m |[0m [33mminikermit@hotmail.com[0m[0m |[0m
+      | [33mPassword[0m[0m |[0m [33m12345678              [0m[0m |[0m
+[33m      Undefined step: "I fill in the following:" (Cucumber::Undefined)[0m
+[33m      features/login.feature:6:in `When I fill in the following:'[0m
+    [33mAnd I press "Sign in"[90m                       # features/login.feature:9[0m[0m
+[33m      Undefined step: "I press "Sign in"" (Cucumber::Undefined)[0m
+[33m      features/login.feature:9:in `And I press "Sign in"'[0m
+    [33mThen I should see "Signed in successfully."[90m # features/login.feature:10[0m[0m
+[33m      Undefined step: "I should see "Signed in successfully."" (Cucumber::Undefined)[0m
+[33m      features/login.feature:10:in `Then I should see "Signed in successfully."'[0m
+
+1 scenario ([33m1 undefined[0m)
+4 steps ([33m3 undefined[0m, [32m1 passed[0m)
+0m0.628s
+[33m[0m
+[33mYou can implement step definitions for undefined steps with these snippets:[0m
+[33m[0m
+[33mWhen(/^I fill in the following:$/) do |table|[0m
+[33m  # table is a Cucumber::Ast::Table[0m
+[33m  pending # express the regexp above with the code you wish you had[0m
+[33mend[0m
+[33m[0m
+[33mWhen(/^I press "(.*?)"$/) do |arg1|[0m
+[33m  pending # express the regexp above with the code you wish you had[0m
+[33mend[0m
+[33m[0m
+[33mThen(/^I should see "(.*?)"$/) do |arg1|[0m
+[33m  pending # express the regexp above with the code you wish you had[0m
+[33mend[0m
+
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle exec cucumber
+^[[A
+Using the default profile...
+Feature: Login from the visitor page
+
+  Background: [90m                     # features/login.feature:3[0m
+    [32mGiven I am on the visitor page[90m # features/step_definitions/user_steps.rb:1[0m[0m
+
+  Scenario: [90m                                    # features/login.feature:5[0m
+    [33mWhen I fill in the following:[90m               # features/login.feature:6[0m[0m
+      | [33mEmail   [0m[0m |[0m [33mminikermit@hotmail.com[0m[0m |[0m
+      | [33mPassword[0m[0m |[0m [33m12345678              [0m[0m |[0m
+[33m      Undefined step: "I fill in the following:" (Cucumber::Undefined)[0m
+[33m      features/login.feature:6:in `When I fill in the following:'[0m
+    [33mAnd I press "Sign in"[90m                       # features/login.feature:9[0m[0m
+[33m      Undefined step: "I press "Sign in"" (Cucumber::Undefined)[0m
+[33m      features/login.feature:9:in `And I press "Sign in"'[0m
+    [33mThen I should see "Signed in successfully."[90m # features/login.feature:10[0m[0m
+[33m      Undefined step: "I should see "Signed in successfully."" (Cucumber::Undefined)[0m
+[33m      features/login.feature:10:in `Then I should see "Signed in successfully."'[0m
+
+1 scenario ([33m1 undefined[0m)
+4 steps ([33m3 undefined[0m, [32m1 passed[0m)
+0m0.631s
+[33m[0m
+[33mYou can implement step definitions for undefined steps with these snippets:[0m
+[33m[0m
+[33mWhen(/^I fill in the following:$/) do |table|[0m
+[33m  # table is a Cucumber::Ast::Table[0m
+[33m  pending # express the regexp above with the code you wish you had[0m
+[33mend[0m
+[33m[0m
+[33mWhen(/^I press "(.*?)"$/) do |arg1|[0m
+[33m  pending # express the regexp above with the code you wish you had[0m
+[33mend[0m
+[33m[0m
+[33mThen(/^I should see "(.*?)"$/) do |arg1|[0m
+[33m  pending # express the regexp above with the code you wish you had[0m
+[33mend[0m
+
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle exec cucumber
+Using the default profile...
+Feature: Login from the visitor page
+
+  Background: [90m                     # features/login.feature:3[0m
+    [32mGiven I am on the visitor page[90m # features/step_definitions/user_steps.rb:1[0m[0m
+
+  Scenario: [90m                                    # features/login.feature:5[0m
+    [33mWhen I fill in the following:[90m               # features/login.feature:6[0m[0m
+      | [33mEmail   [0m[0m |[0m [33mminikermit@hotmail.com[0m[0m |[0m
+      | [33mPassword[0m[0m |[0m [33m12345678              [0m[0m |[0m
+[33m      Undefined step: "I fill in the following:" (Cucumber::Undefined)[0m
+[33m      features/login.feature:6:in `When I fill in the following:'[0m
+    [33mAnd I press "Sign in"[90m                       # features/login.feature:9[0m[0m
+[33m      Undefined step: "I press "Sign in"" (Cucumber::Undefined)[0m
+[33m      features/login.feature:9:in `And I press "Sign in"'[0m
+    [33mThen I should see "Signed in successfully."[90m # features/login.feature:10[0m[0m
+[33m      Undefined step: "I should see "Signed in successfully."" (Cucumber::Undefined)[0m
+[33m      features/login.feature:10:in `Then I should see "Signed in successfully."'[0m
+
+1 scenario ([33m1 undefined[0m)
+4 steps ([33m3 undefined[0m, [32m1 passed[0m)
+0m0.663s
+[33m[0m
+[33mYou can implement step definitions for undefined steps with these snippets:[0m
+[33m[0m
+[33mWhen(/^I fill in the following:$/) do |table|[0m
+[33m  # table is a Cucumber::Ast::Table[0m
+[33m  pending # express the regexp above with the code you wish you had[0m
+[33mend[0m
+[33m[0m
+[33mWhen(/^I press "(.*?)"$/) do |arg1|[0m
+[33m  pending # express the regexp above with the code you wish you had[0m
+[33mend[0m
+[33m[0m
+[33mThen(/^I should see "(.*?)"$/) do |arg1|[0m
+[33m  pending # express the regexp above with the code you wish you had[0m
+[33mend[0m
+
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle exec cucumber
+Using the default profile...
+Feature: Login from the visitor page
+
+  Background: [90m                     # features/login.feature:3[0m
+    [32mGiven I am on the visitor page[90m # features/step_definitions/user_steps.rb:3[0m[0m
+    [33mGiven I am a registered user[90m   # features/login.feature:5[0m[0m
+[33m      Undefined step: "I am a registered user" (Cucumber::Undefined)[0m
+[33m      features/login.feature:5:in `Given I am a registered user'[0m
+
+  Scenario: [90m                                    # features/login.feature:6[0m
+    [36mWhen I am on the visitor page[90m               # features/step_definitions/user_steps.rb:3[0m[0m
+    [33mAnd I fill in "Email" with "me@gmail.com"[90m   # features/login.feature:8[0m[0m
+[33m      Undefined step: "I fill in "Email" with "me@gmail.com"" (Cucumber::Undefined)[0m
+[33m      features/login.feature:8:in `And I fill in "Email" with "me@gmail.com"'[0m
+    [33mAnd I fill in "Password" with "password"[90m    # features/login.feature:9[0m[0m
+[33m      Undefined step: "I fill in "Password" with "password"" (Cucumber::Undefined)[0m
+[33m      features/login.feature:9:in `And I fill in "Password" with "password"'[0m
+    [36mAnd I press "[36m[1mSign in[0m[0m[36m"[90m                       # features/step_definitions/user_steps.rb:19[0m[0m
+    [36mThen I should see "[36m[1mSigned in successfully.[0m[0m[36m"[90m # features/step_definitions/user_steps.rb:23[0m[0m
+
+1 scenario ([33m1 undefined[0m)
+7 steps ([36m3 skipped[0m, [33m3 undefined[0m, [32m1 passed[0m)
+0m0.635s
+[33m[0m
+[33mYou can implement step definitions for undefined steps with these snippets:[0m
+[33m[0m
+[33mGiven(/^I am a registered user$/) do[0m
+[33m  pending # express the regexp above with the code you wish you had[0m
+[33mend[0m
+[33m[0m
+[33mWhen(/^I fill in "(.*?)" with "(.*?)"$/) do |arg1, arg2|[0m
+[33m  pending # express the regexp above with the code you wish you had[0m
+[33mend[0m
+
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ 
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle exec cucumber
+Using the default profile...
+Feature: Login from the visitor page
+
+  Background: [90m                     # features/login.feature:3[0m
+    [32mGiven I am on the visitor page[90m # features/step_definitions/user_steps.rb:3[0m[0m
+    [33mGiven I am a registered user[90m   # features/login.feature:5[0m[0m
+[33m      Undefined step: "I am a registered user" (Cucumber::Undefined)[0m
+[33m      features/login.feature:5:in `Given I am a registered user'[0m
+
+  Scenario: [90m                                    # features/login.feature:6[0m
+    [36mWhen I am on the visitor page[90m               # features/step_definitions/user_steps.rb:3[0m[0m
+    [33mAnd I fill in  "me@gmail.com"[90m               # features/login.feature:8[0m[0m
+[33m      Undefined step: "I fill in  "me@gmail.com"" (Cucumber::Undefined)[0m
+[33m      features/login.feature:8:in `And I fill in  "me@gmail.com"'[0m
+    [33mAnd I fill in  "password"[90m                   # features/login.feature:9[0m[0m
+[33m      Undefined step: "I fill in  "password"" (Cucumber::Undefined)[0m
+[33m      features/login.feature:9:in `And I fill in  "password"'[0m
+    [36mAnd I press "[36m[1mSign in[0m[0m[36m"[90m                       # features/step_definitions/user_steps.rb:19[0m[0m
+    [36mThen I should see "[36m[1mSigned in successfully.[0m[0m[36m"[90m # features/step_definitions/user_steps.rb:23[0m[0m
+
+1 scenario ([33m1 undefined[0m)
+7 steps ([36m3 skipped[0m, [33m3 undefined[0m, [32m1 passed[0m)
+0m0.638s
+[33m[0m
+[33mYou can implement step definitions for undefined steps with these snippets:[0m
+[33m[0m
+[33mGiven(/^I am a registered user$/) do[0m
+[33m  pending # express the regexp above with the code you wish you had[0m
+[33mend[0m
+[33m[0m
+[33mWhen(/^I fill in  "(.*?)"$/) do |arg1|[0m
+[33m  pending # express the regexp above with the code you wish you had[0m
+[33mend[0m
+
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ 
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle install
+Using rake (10.3.2) 
+Using i18n (0.6.11) 
+Using json (1.8.1) 
+Using minitest (5.4.2) 
+Using thread_safe (0.3.4) 
+Using tzinfo (1.2.2) 
+Using activesupport (4.1.6) 
+Using builder (3.2.2) 
+Using erubis (2.7.0) 
+Using actionview (4.1.6) 
+Using rack (1.5.2) 
+Using rack-test (0.6.2) 
+Using actionpack (4.1.6) 
+Using mime-types (2.3) 
+Using mail (2.6.1) 
+Using actionmailer (4.1.6) 
+Using activemodel (4.1.6) 
+Using arel (5.0.1.20140414130214) 
+Using activerecord (4.1.6) 
+Using addressable (2.3.6) 
+Using bcrypt (3.1.7) 
+Using sass (3.2.19) 
+Using bootstrap-sass (3.2.0.2) 
+Using mini_portile (0.6.0) 
+Using nokogiri (1.6.3.1) 
+Using xpath (2.0.0) 
+Using capybara (2.4.3) 
+Using ffi (1.9.5) 
+Using childprocess (0.5.5) 
+Using coffee-script-source (1.8.0) 
+Using execjs (2.2.1) 
+Using coffee-script (2.3.0) 
+Using thor (0.19.1) 
+Using railties (4.1.6) 
+Using coffee-rails (4.0.1) 
+Using diff-lcs (1.2.5) 
+Using multi_json (1.10.1) 
+Using gherkin (2.12.2) 
+Using multi_test (0.1.1) 
+Using cucumber (1.3.17) 
+Using bundler (1.3.5) 
+Using hike (1.2.3) 
+Using tilt (1.4.1) 
+Using sprockets (2.11.0) 
+Using sprockets-rails (2.1.4) 
+Using rails (4.1.6) 
+Using cucumber-rails (1.4.2) 
+Using database_cleaner (1.3.0) 
+Using orm_adapter (0.5.0) 
+Using responders (1.1.1) 
+Using warden (1.2.3) 
+Using devise (3.4.0) 
+Using factory_girl (4.4.0) 
+Using factory_girl_rails (4.4.1) 
+Using faker (1.4.3) 
+Using jbuilder (2.1.3) 
+Using jquery-rails (3.1.2) 
+Using launchy (2.4.2) 
+Using pg (0.17.1) 
+Using quiet_assets (1.0.3) 
+Using rails_serve_static_assets (0.0.2) 
+Using rails_stdout_logging (0.0.3) 
+Using rails_12factor (0.0.2) 
+Using rails_layout (1.0.22) 
+Using rdoc (4.1.2) 
+Using rspec-support (3.1.1) 
+Using rspec-core (3.1.5) 
+Using rspec-expectations (3.1.2) 
+Using rspec-mocks (3.1.2) 
+Using rspec (3.1.0) 
+Using rspec-rails (3.1.0) 
+Using rubyzip (1.1.6) 
+Using sass-rails (4.0.3) 
+Using sdoc (0.4.1) 
+Using websocket (1.2.1) 
+Using selenium-webdriver (2.43.0) 
+Using spring (1.1.3) 
+Using sqlite3 (1.3.9) 
+Using turbolinks (2.4.0) 
+Using uglifier (2.5.3) 
+Using webrat (0.7.3) 
+[32mYour bundle is complete![0m
+[32mUse `bundle show [gemname]` to see where a bundled gem is installed.[0m
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ rake db:create
+WARNING: Cucumber-rails required outside of env.rb.  The rest of loading is being deferred until env.rb is called.
+  To avoid this warning, move 'gem 'cucumber-rails', :require => false' under only group :test in your Gemfile.
+  If already in the :test group, be sure you are specifying ':require => false'.
+db/development.sqlite3 already exists
+db/test.sqlite3 already exists
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ rake db:migrate
+WARNING: Cucumber-rails required outside of env.rb.  The rest of loading is being deferred until env.rb is called.
+  To avoid this warning, move 'gem 'cucumber-rails', :require => false' under only group :test in your Gemfile.
+  If already in the :test group, be sure you are specifying ':require => false'.
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ rake cucumber
+WARNING: Cucumber-rails required outside of env.rb.  The rest of loading is being deferred until env.rb is called.
+  To avoid this warning, move 'gem 'cucumber-rails', :require => false' under only group :test in your Gemfile.
+  If already in the :test group, be sure you are specifying ':require => false'.
+/usr/bin/ruby1.9.1 -S bundle exec cucumber  --profile default
+Using the default profile...
+Feature: Login from the visitor page
+
+  Background: [90m                     # features/login.feature:3[0m
+    [32mGiven I am on the visitor page[90m # features/step_definitions/user_steps.rb:3[0m[0m
+    [33mGiven I am a registered user[90m   # features/login.feature:5[0m[0m
+[33m      Undefined step: "I am a registered user" (Cucumber::Undefined)[0m
+[33m      features/login.feature:5:in `Given I am a registered user'[0m
+
+  Scenario: [90m                                    # features/login.feature:6[0m
+    [36mWhen I am on the visitor page[90m               # features/step_definitions/user_steps.rb:3[0m[0m
+    [33mAnd I fill in  "me@gmail.com"[90m               # features/login.feature:8[0m[0m
+[33m      Undefined step: "I fill in  "me@gmail.com"" (Cucumber::Undefined)[0m
+[33m      features/login.feature:8:in `And I fill in  "me@gmail.com"'[0m
+    [33mAnd I fill in  "password"[90m                   # features/login.feature:9[0m[0m
+[33m      Undefined step: "I fill in  "password"" (Cucumber::Undefined)[0m
+[33m      features/login.feature:9:in `And I fill in  "password"'[0m
+    [36mAnd I press "[36m[1mSign in[0m[0m[36m"[90m                       # features/step_definitions/user_steps.rb:19[0m[0m
+    [36mThen I should see "[36m[1mSigned in successfully.[0m[0m[36m"[90m # features/step_definitions/user_steps.rb:23[0m[0m
+
+1 scenario ([33m1 undefined[0m)
+7 steps ([36m3 skipped[0m, [33m3 undefined[0m, [32m1 passed[0m)
+0m0.637s
+[33m[0m
+[33mYou can implement step definitions for undefined steps with these snippets:[0m
+[33m[0m
+[33mGiven(/^I am a registered user$/) do[0m
+[33m  pending # express the regexp above with the code you wish you had[0m
+[33mend[0m
+[33m[0m
+[33mWhen(/^I fill in  "(.*?)"$/) do |arg1|[0m
+[33m  pending # express the regexp above with the code you wish you had[0m
+[33mend[0m
+
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ rake cucumber
+WARNING: Cucumber-rails required outside of env.rb.  The rest of loading is being deferred until env.rb is called.
+  To avoid this warning, move 'gem 'cucumber-rails', :require => false' under only group :test in your Gemfile.
+  If already in the :test group, be sure you are specifying ':require => false'.
+/usr/bin/ruby1.9.1 -S bundle exec cucumber  --profile default
+Using the default profile...
+Feature: Login from the visitor page
+  In order to login from visitpr page
+  Registered user
+  Should login from the visitors page
+  
+  Scenarior: Ewgiatered uset should login from the visitor page
+    Given the user is on the visitor page
+    And is a registered user
+  
+    When the user enters email address
+    AND the user enters passowrd
+    AND clicks on the "Sign in" button 
+  
+    Then the user should see "Signed in successfully."
+    AND url should contain "/users"
+
+0 scenarios
+0 steps
+0m0.001s
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ rake cucumberdb:migrate[1Pcreatebundle installexec cucumber
+Using the default profile...
+Feature: Login from the visitor page
+  In order to login from visitpr page
+  Registered user
+  Should login from the visitors page
+  
+  Scenarior: Registered user should login from the visitor page
+    Given the user is on the visitor page
+    And is a registered user
+  
+    When the user enters email address
+    AND the user enters password
+    AND clicks on the "Sign in" button 
+  
+    Then the user should see "Signed in successfully."
+    AND url should contain "/users"
+
+0 scenarios
+0 steps
+0m0.001s
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ ls
+[0m[01;34mapp[0m       [01;34mbin[0m     [01;32mconfig.ru[0m  [01;34mfeatures[0m  [01;32mGemfile~[0m      generate  [01;34mlog[0m          [01;34mpublic[0m    [01;32mREADME.txt[0m  [01;34mspec[0m  [01;34mvendor[0m
+[01;32mapp.json[0m  [01;34mconfig[0m  [01;34mdb[0m         [01;32mGemfile[0m   [01;32mGemfile.lock[0m  [01;34mlib[0m       [01;32mnitrous.txt[0m  [01;32mRakefile[0m  [01;34mscript[0m      [01;34mtmp[0m
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ cd fr[KE[Keatures/
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/featuresgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/features$ ls
+login.feature  login.feature~  [0m[01;34mstep_definitions[0m  [01;34msupport[0m
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/featuresgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/features$ lscd features/ls[Kbundle exec cucumber
+No such file or directory - features. Please create a features directory to get started. (Errno::ENOENT)
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/featuresgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/features$ cd ..
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ ls
+[0m[01;34mapp[0m       [01;34mbin[0m     [01;32mconfig.ru[0m  [01;34mfeatures[0m  [01;32mGemfile~[0m      generate  [01;34mlog[0m          [01;34mpublic[0m    [01;32mREADME.txt[0m  [01;34mspec[0m  [01;34mvendor[0m
+[01;32mapp.json[0m  [01;34mconfig[0m  [01;34mdb[0m         [01;32mGemfile[0m   [01;32mGemfile.lock[0m  [01;34mlib[0m       [01;32mnitrous.txt[0m  [01;32mRakefile[0m  [01;34mscript[0m      [01;34mtmp[0m
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ lscd ..bundle exec cucumber
+Using the default profile...
+Feature: Login from the visitor page
+  In order to login from visitpr page
+  Registered user
+  Should login from the visitors page
+  
+  Scenarior: Registered user should login from the visitor page
+  Given the user is on the visitor page
+  And is a registered user
+  
+  When the user enters email address
+  AND the user enters password
+  AND clicks on the "Sign in" button 
+  
+  Then the user should see "Signed in successfully."
+  AND url should contain "/users"
+
+0 scenarios
+0 steps
+0m0.001s
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle exec cucumber
+features/login.feature: Lexing error on line 11: '  AND the user enters password'. See http://wiki.github.com/cucumber/gherkin/lexingerror for more information. (Gherkin::Lexer::LexingError)
+/var/lib/gems/1.9.1/gems/gherkin-2.12.2/lib/gherkin/lexer/i18n_lexer.rb:24:in `scan'
+/var/lib/gems/1.9.1/gems/gherkin-2.12.2/lib/gherkin/lexer/i18n_lexer.rb:24:in `scan'
+/var/lib/gems/1.9.1/gems/gherkin-2.12.2/lib/gherkin/parser/parser.rb:33:in `parse'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/feature_file.rb:37:in `parse'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/features_loader.rb:28:in `block in load'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/features_loader.rb:26:in `each'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/features_loader.rb:26:in `load'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/features_loader.rb:14:in `features'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime.rb:179:in `features'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime.rb:49:in `run!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/cli/main.rb:47:in `execute!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/bin/cucumber:13:in `<top (required)>'
+/usr/local/bin/cucumber:23:in `load'
+/usr/local/bin/cucumber:23:in `<main>'
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle exec cucumber
+Using the default profile...
+Feature: Login from the visitor page
+  In order to login from visitpr page
+  Registered user
+  Should login from the visitors page
+
+  Scenario: Registered user should login from the visitor page[90m # features/login.feature:6[0m
+    [33mGiven the user is on the visitor page[90m                      # features/login.feature:7[0m[0m
+[33m      Undefined step: "the user is on the visitor page" (Cucumber::Undefined)[0m
+[33m      features/login.feature:7:in `Given the user is on the visitor page'[0m
+    [33mAnd the user is a registered user[90m                          # features/login.feature:8[0m[0m
+[33m      Undefined step: "the user is a registered user" (Cucumber::Undefined)[0m
+[33m      features/login.feature:8:in `And the user is a registered user'[0m
+    [33mWhen the user enters email address[90m                         # features/login.feature:10[0m[0m
+[33m      Undefined step: "the user enters email address" (Cucumber::Undefined)[0m
+[33m      features/login.feature:10:in `When the user enters email address'[0m
+    [33mAnd the user enters password[90m                               # features/login.feature:12[0m[0m
+[33m      Undefined step: "the user enters password" (Cucumber::Undefined)[0m
+[33m      features/login.feature:12:in `And the user enters password'[0m
+    [33mAnd clicks on the "Sign in" button[90m                         # features/login.feature:13[0m[0m
+[33m      Undefined step: "clicks on the "Sign in" button" (Cucumber::Undefined)[0m
+[33m      features/login.feature:13:in `And clicks on the "Sign in" button'[0m
+    [33mThen the user should see "Signed in successfully."[90m         # features/login.feature:15[0m[0m
+[33m      Undefined step: "the user should see "Signed in successfully."" (Cucumber::Undefined)[0m
+[33m      features/login.feature:15:in `Then the user should see "Signed in successfully."'[0m
+    [33mAnd url should contain "/users"[90m                            # features/login.feature:16[0m[0m
+[33m      Undefined step: "url should contain "/users"" (Cucumber::Undefined)[0m
+[33m      features/login.feature:16:in `And url should contain "/users"'[0m
+
+1 scenario ([33m1 undefined[0m)
+7 steps ([33m7 undefined[0m)
+0m0.243s
+[33m[0m
+[33mYou can implement step definitions for undefined steps with these snippets:[0m
+[33m[0m
+[33mGiven(/^the user is on the visitor page$/) do[0m
+[33m  pending # express the regexp above with the code you wish you had[0m
+[33mend[0m
+[33m[0m
+[33mGiven(/^the user is a registered user$/) do[0m
+[33m  pending # express the regexp above with the code you wish you had[0m
+[33mend[0m
+[33m[0m
+[33mWhen(/^the user enters email address$/) do[0m
+[33m  pending # express the regexp above with the code you wish you had[0m
+[33mend[0m
+[33m[0m
+[33mWhen(/^the user enters password$/) do[0m
+[33m  pending # express the regexp above with the code you wish you had[0m
+[33mend[0m
+[33m[0m
+[33mWhen(/^clicks on the "(.*?)" button$/) do |arg1|[0m
+[33m  pending # express the regexp above with the code you wish you had[0m
+[33mend[0m
+[33m[0m
+[33mThen(/^the user should see "(.*?)"$/) do |arg1|[0m
+[33m  pending # express the regexp above with the code you wish you had[0m
+[33mend[0m
+[33m[0m
+[33mThen(/^url should contain "(.*?)"$/) do |arg1|[0m
+[33m  pending # express the regexp above with the code you wish you had[0m
+[33mend[0m
+
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle exec cucumber
+Using the default profile...
+Feature: Login from the visitor page
+  In order to login from visitpr page
+  Registered user
+  Should login from the visitors page
+
+  Scenario: Registered user should login from the visitor page[90m # features/login.feature:6[0m
+    [32mGiven the user is on the visitor page[90m                      # features/step_definitions/user_steps.rb:3[0m[0m
+[31mWARNING: Using 'Given/When/Then' in step definitions is deprecated, use 'step' to call other steps instead:/home/govisun/Downloads/interview_coding_exercise/features/step_definitions/user_steps.rb:8:in `block in <top (required)>'[0m
+    [31mAnd the user is a registered user[90m                          # features/step_definitions/user_steps.rb:7[0m[0m
+[31m      can't convert Regexp to String (TypeError)[0m
+[31m      ./features/step_definitions/user_steps.rb:8:in `/^the user is a registered user$/'[0m
+[31m      features/login.feature:8:in `And the user is a registered user'[0m
+    [36mWhen the user enters email address[90m                         # features/step_definitions/user_steps.rb:17[0m[0m
+    [36mAnd the user enters password[90m                               # features/step_definitions/user_steps.rb:21[0m[0m
+    [36mAnd clicks on the "[36m[1mSign in[0m[0m[36m" button[90m                         # features/step_definitions/user_steps.rb:25[0m[0m
+    [36mThen the user should see "[36m[1mSigned in successfully.[0m[0m[36m"[90m         # features/step_definitions/user_steps.rb:29[0m[0m
+    [36mAnd url should contain "[36m[1m/users[0m[0m[36m"[90m                            # features/step_definitions/user_steps.rb:33[0m[0m
+
+[31mFailing Scenarios:[0m
+[31mcucumber features/login.feature:6[0m[90m # Scenario: Registered user should login from the visitor page[0m
+
+1 scenario ([31m1 failed[0m)
+7 steps ([31m1 failed[0m, [36m5 skipped[0m, [32m1 passed[0m)
+0m0.655s
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle exec cucumber
+Using the default profile...
+Feature: Login from the visitor page
+  In order to login from visitpr page
+  Registered user
+  Should login from the visitors page
+
+  Scenario: Registered user should login from the visitor page[90m # features/login.feature:6[0m
+    [32mGiven the user is on the visitor page[90m                      # features/step_definitions/user_steps.rb:3[0m[0m
+[31mWARNING: Using 'Given/When/Then' in step definitions is deprecated, use 'step' to call other steps instead:/home/govisun/Downloads/interview_coding_exercise/features/step_definitions/user_steps.rb:8:in `block in <top (required)>'[0m
+    [31mGiven the user is a registered user[90m                        # features/step_definitions/user_steps.rb:7[0m[0m
+[31m      can't convert Regexp to String (TypeError)[0m
+[31m      ./features/step_definitions/user_steps.rb:8:in `/^the user is a registered user$/'[0m
+[31m      features/login.feature:8:in `Given the user is a registered user'[0m
+    [36mWhen the user enters email address[90m                         # features/step_definitions/user_steps.rb:17[0m[0m
+    [36mAnd the user enters password[90m                               # features/step_definitions/user_steps.rb:21[0m[0m
+    [36mAnd clicks on the "[36m[1mSign in[0m[0m[36m" button[90m                         # features/step_definitions/user_steps.rb:25[0m[0m
+    [36mThen the user should see "[36m[1mSigned in successfully.[0m[0m[36m"[90m         # features/step_definitions/user_steps.rb:29[0m[0m
+    [36mAnd url should contain "[36m[1m/users[0m[0m[36m"[90m                            # features/step_definitions/user_steps.rb:33[0m[0m
+
+[31mFailing Scenarios:[0m
+[31mcucumber features/login.feature:6[0m[90m # Scenario: Registered user should login from the visitor page[0m
+
+1 scenario ([31m1 failed[0m)
+7 steps ([31m1 failed[0m, [36m5 skipped[0m, [32m1 passed[0m)
+0m0.648s
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle exec cucumber
+Using the default profile...
+Feature: Login from the visitor page
+  In order to login from visitpr page
+  Registered user
+  Should login from the visitors page
+
+  Scenario: Registered user should login from the visitor page[90m # features/login.feature:6[0m
+    [32mGiven the user is on the visitor page[90m                      # features/step_definitions/user_steps.rb:3[0m[0m
+    [32mGiven the user is a registered user[90m                        # features/step_definitions/user_steps.rb:7[0m[0m
+    [33mWhen the user enters email address[90m                         # features/step_definitions/user_steps.rb:14[0m[0m
+[33m      TODO (Cucumber::Pending)[0m
+[33m      ./features/step_definitions/user_steps.rb:15:in `/^the user enters email address$/'[0m
+[33m      features/login.feature:10:in `When the user enters email address'[0m
+    [36mAnd the user enters password[90m                               # features/step_definitions/user_steps.rb:18[0m[0m
+    [36mAnd clicks on the "[36m[1mSign in[0m[0m[36m" button[90m                         # features/step_definitions/user_steps.rb:22[0m[0m
+    [36mThen the user should see "[36m[1mSigned in successfully.[0m[0m[36m"[90m         # features/step_definitions/user_steps.rb:26[0m[0m
+    [36mAnd url should contain "[36m[1m/users[0m[0m[36m"[90m                            # features/step_definitions/user_steps.rb:30[0m[0m
+
+1 scenario ([33m1 pending[0m)
+7 steps ([36m4 skipped[0m, [33m1 pending[0m, [32m2 passed[0m)
+0m0.861s
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle exec cucumber
+Using the default profile...
+Feature: Login from the visitor page
+  In order to login from visitpr page
+  Registered user
+  Should login from the visitors page
+
+  Scenario: Registered user should login from the visitor page[90m # features/login.feature:6[0m
+    [32mGiven the user is on the visitor page[90m                      # features/step_definitions/user_steps.rb:3[0m[0m
+    [32mGiven the user is a registered user[90m                        # features/step_definitions/user_steps.rb:7[0m[0m
+    [32mWhen the user enters email address[90m                         # features/step_definitions/user_steps.rb:14[0m[0m
+    [33mAnd the user enters password[90m                               # features/step_definitions/user_steps.rb:18[0m[0m
+[33m      TODO (Cucumber::Pending)[0m
+[33m      ./features/step_definitions/user_steps.rb:19:in `/^the user enters password$/'[0m
+[33m      features/login.feature:12:in `And the user enters password'[0m
+    [36mAnd clicks on the "[36m[1mSign in[0m[0m[36m" button[90m                         # features/step_definitions/user_steps.rb:22[0m[0m
+    [36mThen the user should see "[36m[1mSigned in successfully.[0m[0m[36m"[90m         # features/step_definitions/user_steps.rb:26[0m[0m
+    [36mAnd url should contain "[36m[1m/users[0m[0m[36m"[90m                            # features/step_definitions/user_steps.rb:30[0m[0m
+
+1 scenario ([33m1 pending[0m)
+7 steps ([36m3 skipped[0m, [33m1 pending[0m, [32m3 passed[0m)
+0m0.869s
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle exec cucumber
+Using the default profile...
+Feature: Login from the visitor page
+  In order to login from visitpr page
+  Registered user
+  Should login from the visitors page
+
+  Scenario: Registered user should login from the visitor page[90m # features/login.feature:6[0m
+    [32mGiven the user is on the visitor page[90m                      # features/step_definitions/user_steps.rb:3[0m[0m
+    [32mGiven the user is a registered user[90m                        # features/step_definitions/user_steps.rb:7[0m[0m
+    [32mWhen the user enters email address[90m                         # features/step_definitions/user_steps.rb:14[0m[0m
+    [32mAnd the user enters password[90m                               # features/step_definitions/user_steps.rb:18[0m[0m
+    [33mAnd clicks on the "[33m[1mSign in[0m[0m[33m" button[90m                         # features/step_definitions/user_steps.rb:22[0m[0m
+[33m      TODO (Cucumber::Pending)[0m
+[33m      ./features/step_definitions/user_steps.rb:23:in `/^clicks on the "(.*?)" button$/'[0m
+[33m      features/login.feature:13:in `And clicks on the "Sign in" button'[0m
+    [36mThen the user should see "[36m[1mSigned in successfully.[0m[0m[36m"[90m         # features/step_definitions/user_steps.rb:26[0m[0m
+    [36mAnd url should contain "[36m[1m/users[0m[0m[36m"[90m                            # features/step_definitions/user_steps.rb:30[0m[0m
+
+1 scenario ([33m1 pending[0m)
+7 steps ([36m2 skipped[0m, [33m1 pending[0m, [32m4 passed[0m)
+0m0.863s
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle exec cucumber
+Using the default profile...
+Feature: Login from the visitor page
+  In order to login from visitpr page
+  Registered user
+  Should login from the visitors page
+
+  Scenario: Registered user should login from the visitor page[90m # features/login.feature:6[0m
+    [32mGiven the user is on the visitor page[90m                      # features/step_definitions/user_steps.rb:3[0m[0m
+    [32mGiven the user is a registered user[90m                        # features/step_definitions/user_steps.rb:7[0m[0m
+    [32mWhen the user enters email address[90m                         # features/step_definitions/user_steps.rb:14[0m[0m
+    [32mAnd the user enters password[90m                               # features/step_definitions/user_steps.rb:18[0m[0m
+    [32mAnd clicks on the "[32m[1mSign in[0m[0m[32m" button[90m                         # features/step_definitions/user_steps.rb:22[0m[0m
+    [33mThen the user should see "[33m[1mSigned in successfully.[0m[0m[33m"[90m         # features/step_definitions/user_steps.rb:26[0m[0m
+[33m      TODO (Cucumber::Pending)[0m
+[33m      ./features/step_definitions/user_steps.rb:27:in `/^the user should see "(.*?)"$/'[0m
+[33m      features/login.feature:15:in `Then the user should see "Signed in successfully."'[0m
+    [36mAnd url should contain "[36m[1m/users[0m[0m[36m"[90m                            # features/step_definitions/user_steps.rb:30[0m[0m
+
+1 scenario ([33m1 pending[0m)
+7 steps ([36m1 skipped[0m, [33m1 pending[0m, [32m5 passed[0m)
+0m4.579s
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle exec cucumber
+Using the default profile...
+Feature: Login from the visitor page
+  In order to login from visitpr page
+  Registered user
+  Should login from the visitors page
+
+  Scenario: Registered user should login from the visitor page[90m # features/login.feature:6[0m
+    [32mGiven the user is on the visitor page[90m                      # features/step_definitions/user_steps.rb:3[0m[0m
+    [32mGiven the user is a registered user[90m                        # features/step_definitions/user_steps.rb:7[0m[0m
+    [32mWhen the user enters email address[90m                         # features/step_definitions/user_steps.rb:14[0m[0m
+    [32mAnd the user enters password[90m                               # features/step_definitions/user_steps.rb:18[0m[0m
+    [32mAnd clicks on the "[32m[1mSign in[0m[0m[32m" button[90m                         # features/step_definitions/user_steps.rb:22[0m[0m
+    [32mThen the user should see "[32m[1mSigned in successfully.[0m[0m[32m"[90m         # features/step_definitions/user_steps.rb:26[0m[0m
+    [33mAnd url should contain "[33m[1m/users[0m[0m[33m"[90m                            # features/step_definitions/user_steps.rb:30[0m[0m
+[33m      TODO (Cucumber::Pending)[0m
+[33m      ./features/step_definitions/user_steps.rb:31:in `/^url should contain "(.*?)"$/'[0m
+[33m      features/login.feature:16:in `And url should contain "/users"'[0m
+
+1 scenario ([33m1 pending[0m)
+7 steps ([33m1 pending[0m, [32m6 passed[0m)
+0m4.667s
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle exec cucumber
+Using the default profile...
+Feature: Login from the visitor page
+  In order to login from visitpr page
+  Registered user
+  Should login from the visitors page
+
+  Scenario: Registered user should login from the visitor page[90m # features/login.feature:6[0m
+    [32mGiven the user is on the visitor page[90m                      # features/step_definitions/user_steps.rb:3[0m[0m
+    [32mGiven the user is a registered user[90m                        # features/step_definitions/user_steps.rb:7[0m[0m
+    [32mWhen the user enters email address[90m                         # features/step_definitions/user_steps.rb:14[0m[0m
+    [32mAnd the user enters password[90m                               # features/step_definitions/user_steps.rb:18[0m[0m
+    [32mAnd clicks on the "[32m[1mSign in[0m[0m[32m" button[90m                         # features/step_definitions/user_steps.rb:22[0m[0m
+    [32mThen the user should see "[32m[1mSigned in successfully.[0m[0m[32m"[90m         # features/step_definitions/user_steps.rb:26[0m[0m
+    [31mAnd url should contain "[31m[1mhttp://0.0.0.0:3000/users[0m[0m[31m"[90m         # features/step_definitions/user_steps.rb:30[0m[0m
+[31m      undefined method `path_to' for #<Cucumber::Rails::World:0xc10bc90> (NoMethodError)[0m
+[31m      ./features/step_definitions/user_steps.rb:31:in `/^url should contain "(.*?)"$/'[0m
+[31m      features/login.feature:16:in `And url should contain "http://0.0.0.0:3000/users"'[0m
+
+[31mFailing Scenarios:[0m
+[31mcucumber features/login.feature:6[0m[90m # Scenario: Registered user should login from the visitor page[0m
+
+1 scenario ([31m1 failed[0m)
+7 steps ([31m1 failed[0m, [32m6 passed[0m)
+0m4.695s
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle exec cucumber
+Using the default profile...
+Feature: Login from the visitor page
+  In order to login from visitpr page
+  Registered user
+  Should login from the visitors page
+
+  Scenario: Registered user should login from the visitor page[90m # features/login.feature:6[0m
+    [32mGiven the user is on the visitor page[90m                      # features/step_definitions/user_steps.rb:3[0m[0m
+    [32mGiven the user is a registered user[90m                        # features/step_definitions/user_steps.rb:7[0m[0m
+    [32mWhen the user enters email address[90m                         # features/step_definitions/user_steps.rb:14[0m[0m
+    [32mAnd the user enters password[90m                               # features/step_definitions/user_steps.rb:18[0m[0m
+    [32mAnd clicks on the "[32m[1mSign in[0m[0m[32m" button[90m                         # features/step_definitions/user_steps.rb:22[0m[0m
+    [32mThen the user should see "[32m[1mSigned in successfully.[0m[0m[32m"[90m         # features/step_definitions/user_steps.rb:26[0m[0m
+    [31mAnd url should contain "[31m[1m/users[0m[0m[31m"[90m                            # features/step_definitions/user_steps.rb:30[0m[0m
+[31m      undefined method `path_to' for #<Cucumber::Rails::World:0xa3298a8> (NoMethodError)[0m
+[31m      ./features/step_definitions/user_steps.rb:31:in `/^url should contain "(.*?)"$/'[0m
+[31m      features/login.feature:16:in `And url should contain "/users"'[0m
+
+[31mFailing Scenarios:[0m
+[31mcucumber features/login.feature:6[0m[90m # Scenario: Registered user should login from the visitor page[0m
+
+1 scenario ([31m1 failed[0m)
+7 steps ([31m1 failed[0m, [32m6 passed[0m)
+0m4.648s
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle exec cucumber
+Using the default profile...
+Feature: Login from the visitor page
+  In order to login from visitpr page
+  Registered user
+  Should login from the visitors page
+
+  Scenario: Registered user should login from the visitor page[90m # features/login.feature:6[0m
+    [32mGiven the user is on the visitor page[90m                      # features/step_definitions/user_steps.rb:3[0m[0m
+    [32mGiven the user is a registered user[90m                        # features/step_definitions/user_steps.rb:7[0m[0m
+    [32mWhen the user enters email address[90m                         # features/step_definitions/user_steps.rb:14[0m[0m
+    [32mAnd the user enters password[90m                               # features/step_definitions/user_steps.rb:18[0m[0m
+    [32mAnd clicks on the "[32m[1mSign in[0m[0m[32m" button[90m                         # features/step_definitions/user_steps.rb:22[0m[0m
+    [32mThen the user should see "[32m[1mSigned in successfully.[0m[0m[32m"[90m         # features/step_definitions/user_steps.rb:26[0m[0m
+    [31mAnd url should contain "[31m[1m0.0.0.0:3000/users[0m[0m[31m"[90m                # features/step_definitions/user_steps.rb:30[0m[0m
+[31m      undefined method `path_to' for #<Cucumber::Rails::World:0xb7e2c7c> (NoMethodError)[0m
+[31m      ./features/step_definitions/user_steps.rb:31:in `/^url should contain "(.*?)"$/'[0m
+[31m      features/login.feature:16:in `And url should contain "0.0.0.0:3000/users"'[0m
+
+[31mFailing Scenarios:[0m
+[31mcucumber features/login.feature:6[0m[90m # Scenario: Registered user should login from the visitor page[0m
+
+1 scenario ([31m1 failed[0m)
+7 steps ([31m1 failed[0m, [32m6 passed[0m)
+0m4.616s
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle exec cucumber
+Step definitions must always have a proc or symbol (Cucumber::RbSupport::RbStepDefinition::MissingProc)
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/rb_support/rb_step_definition.rb:28:in `new'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/rb_support/rb_language.rb:80:in `register_rb_step_definition'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/rb_support/rb_dsl.rb:27:in `register_rb_step_definition'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/rb_support/rb_dsl.rb:113:in `register_rb_step_definition'
+/home/govisun/Downloads/interview_coding_exercise/features/support/paths.rb:1:in `<top (required)>'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:241:in `load'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:241:in `block in load'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:232:in `load_dependency'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:241:in `load'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/rb_support/rb_language.rb:95:in `load_code_file'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:180:in `load_file'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:83:in `block in load_files!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:82:in `each'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:82:in `load_files!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime.rb:184:in `load_step_definitions'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime.rb:42:in `run!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/cli/main.rb:47:in `execute!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/bin/cucumber:13:in `<top (required)>'
+/usr/local/bin/cucumber:23:in `load'
+/usr/local/bin/cucumber:23:in `<main>'
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle exec cucumber
+Step definitions must always have a proc or symbol (Cucumber::RbSupport::RbStepDefinition::MissingProc)
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/rb_support/rb_step_definition.rb:28:in `new'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/rb_support/rb_language.rb:80:in `register_rb_step_definition'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/rb_support/rb_dsl.rb:27:in `register_rb_step_definition'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/rb_support/rb_dsl.rb:113:in `register_rb_step_definition'
+/home/govisun/Downloads/interview_coding_exercise/features/support/paths.rb:20:in `<top (required)>'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:241:in `load'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:241:in `block in load'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:232:in `load_dependency'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:241:in `load'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/rb_support/rb_language.rb:95:in `load_code_file'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:180:in `load_file'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:83:in `block in load_files!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:82:in `each'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:82:in `load_files!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime.rb:184:in `load_step_definitions'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime.rb:42:in `run!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/cli/main.rb:47:in `execute!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/bin/cucumber:13:in `<top (required)>'
+/usr/local/bin/cucumber:23:in `load'
+/usr/local/bin/cucumber:23:in `<main>'
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle exec cucumber
+Step definitions must always have a proc or symbol (Cucumber::RbSupport::RbStepDefinition::MissingProc)
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/rb_support/rb_step_definition.rb:28:in `new'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/rb_support/rb_language.rb:80:in `register_rb_step_definition'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/rb_support/rb_dsl.rb:27:in `register_rb_step_definition'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/rb_support/rb_dsl.rb:113:in `register_rb_step_definition'
+/home/govisun/Downloads/interview_coding_exercise/features/support/paths.rb:20:in `<top (required)>'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:241:in `load'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:241:in `block in load'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:232:in `load_dependency'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:241:in `load'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/rb_support/rb_language.rb:95:in `load_code_file'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:180:in `load_file'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:83:in `block in load_files!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:82:in `each'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:82:in `load_files!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime.rb:184:in `load_step_definitions'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime.rb:42:in `run!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/cli/main.rb:47:in `execute!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/bin/cucumber:13:in `<top (required)>'
+/usr/local/bin/cucumber:23:in `load'
+/usr/local/bin/cucumber:23:in `<main>'
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle exec cucumber
+Step definitions must always have a proc or symbol (Cucumber::RbSupport::RbStepDefinition::MissingProc)
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/rb_support/rb_step_definition.rb:28:in `new'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/rb_support/rb_language.rb:80:in `register_rb_step_definition'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/rb_support/rb_dsl.rb:27:in `register_rb_step_definition'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/rb_support/rb_dsl.rb:113:in `register_rb_step_definition'
+/home/govisun/Downloads/interview_coding_exercise/features/support/paths.rb:20:in `<top (required)>'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:241:in `load'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:241:in `block in load'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:232:in `load_dependency'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:241:in `load'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/rb_support/rb_language.rb:95:in `load_code_file'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:180:in `load_file'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:83:in `block in load_files!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:82:in `each'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:82:in `load_files!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime.rb:184:in `load_step_definitions'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime.rb:42:in `run!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/cli/main.rb:47:in `execute!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/bin/cucumber:13:in `<top (required)>'
+/usr/local/bin/cucumber:23:in `load'
+/usr/local/bin/cucumber:23:in `<main>'
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle exec cucumber
+Step definitions must always have a proc or symbol (Cucumber::RbSupport::RbStepDefinition::MissingProc)
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/rb_support/rb_step_definition.rb:28:in `new'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/rb_support/rb_language.rb:80:in `register_rb_step_definition'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/rb_support/rb_dsl.rb:27:in `register_rb_step_definition'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/rb_support/rb_dsl.rb:113:in `register_rb_step_definition'
+/home/govisun/Downloads/interview_coding_exercise/features/support/paths.rb:20:in `<top (required)>'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:241:in `load'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:241:in `block in load'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:232:in `load_dependency'
+/var/lib/gems/1.9.1/gems/activesupport-4.1.6/lib/active_support/dependencies.rb:241:in `load'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/rb_support/rb_language.rb:95:in `load_code_file'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:180:in `load_file'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:83:in `block in load_files!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:82:in `each'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime/support_code.rb:82:in `load_files!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime.rb:184:in `load_step_definitions'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/runtime.rb:42:in `run!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/lib/cucumber/cli/main.rb:47:in `execute!'
+/var/lib/gems/1.9.1/gems/cucumber-1.3.17/bin/cucumber:13:in `<top (required)>'
+/usr/local/bin/cucumber:23:in `load'
+/usr/local/bin/cucumber:23:in `<main>'
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle exec cucumber
+Using the default profile...
+Feature: Login from the visitor page
+  In order to login from visitpr page
+  Registered user
+  Should login from the visitors page
+
+  Scenario: Registered user should login from the visitor page[90m # features/login.feature:6[0m
+    [32mGiven the user is on the visitor page[90m                      # features/step_definitions/user_steps.rb:3[0m[0m
+    [32mGiven the user is a registered user[90m                        # features/step_definitions/user_steps.rb:7[0m[0m
+    [32mWhen the user enters email address[90m                         # features/step_definitions/user_steps.rb:14[0m[0m
+    [32mAnd the user enters password[90m                               # features/step_definitions/user_steps.rb:18[0m[0m
+    [32mAnd clicks on the "[32m[1mSign in[0m[0m[32m" button[90m                         # features/step_definitions/user_steps.rb:22[0m[0m
+    [32mThen the user should see "[32m[1mSigned in successfully.[0m[0m[32m"[90m         # features/step_definitions/user_steps.rb:26[0m[0m
+
+1 scenario ([32m1 passed[0m)
+6 steps ([32m6 passed[0m)
+0m4.644s
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle exec cucumber
+Using the default profile...
+Feature: Login from the visitor page
+  In order to login from visitpr page
+  Registered user
+  Should login from the visitors page
+
+  Scenario: Registered user should login from the visitor page[90m # features/login.feature:6[0m
+    [32mGiven the user is on the visitor page[90m                      # features/step_definitions/user_steps.rb:3[0m[0m
+    [32mGiven the user is a registered user[90m                        # features/step_definitions/user_steps.rb:7[0m[0m
+    [32mWhen the user enters email address[90m                         # features/step_definitions/user_steps.rb:14[0m[0m
+    [32mAnd the user enters password[90m                               # features/step_definitions/user_steps.rb:18[0m[0m
+    [32mAnd clicks on the "[32m[1mSign in[0m[0m[32m" button[90m                         # features/step_definitions/user_steps.rb:22[0m[0m
+    [33mAnd the user is on the users home page[90m                     # features/login.feature:14[0m[0m
+[33m      Undefined step: "the user is on the users home page" (Cucumber::Undefined)[0m
+[33m      features/login.feature:14:in `And the user is on the users home page'[0m
+    [36mThen the user should see "[36m[1mSigned in successfully.[0m[0m[36m"[90m         # features/step_definitions/user_steps.rb:26[0m[0m
+
+1 scenario ([33m1 undefined[0m)
+7 steps ([36m1 skipped[0m, [33m1 undefined[0m, [32m5 passed[0m)
+0m4.800s
+[33m[0m
+[33mYou can implement step definitions for undefined steps with these snippets:[0m
+[33m[0m
+[33mWhen(/^the user is on the users home page$/) do[0m
+[33m  pending # express the regexp above with the code you wish you had[0m
+[33mend[0m
+
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle exec cucumber
+Using the default profile...
+Feature: Login from the visitor page
+  In order to login from visitpr page
+  Registered user
+  Should login from the visitors page
+
+  Scenario: Registered user should login from the visitor page[90m # features/login.feature:6[0m
+    [32mGiven the user is on the visitor page[90m                      # features/step_definitions/user_steps.rb:3[0m[0m
+    [32mGiven the user is a registered user[90m                        # features/step_definitions/user_steps.rb:7[0m[0m
+    [32mWhen the user enters email address[90m                         # features/step_definitions/user_steps.rb:14[0m[0m
+    [32mAnd the user enters password[90m                               # features/step_definitions/user_steps.rb:18[0m[0m
+    [32mAnd clicks on the "[32m[1mSign in[0m[0m[32m" button[90m                         # features/step_definitions/user_steps.rb:22[0m[0m
+    [31mAnd the user is on the users home page[90m                     # features/step_definitions/user_steps.rb:26[0m[0m
+[31m      bad URI(is not URI?): 0.0.0.0:3000/users (URI::InvalidURIError)[0m
+[31m      ./features/step_definitions/user_steps.rb:27:in `/^the user is on the users home page$/'[0m
+[31m      features/login.feature:14:in `And the user is on the users home page'[0m
+    [36mThen the user should see "[36m[1mSigned in successfully.[0m[0m[36m"[90m         # features/step_definitions/user_steps.rb:32[0m[0m
+
+[31mFailing Scenarios:[0m
+[31mcucumber features/login.feature:6[0m[90m # Scenario: Registered user should login from the visitor page[0m
+
+1 scenario ([31m1 failed[0m)
+7 steps ([31m1 failed[0m, [36m1 skipped[0m, [32m5 passed[0m)
+0m4.633s
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle exec cucumber
+Using the default profile...
+Feature: Login from the visitor page
+  In order to login from visitpr page
+  Registered user
+  Should login from the visitors page
+
+  Scenario: Registered user should login from the visitor page[90m # features/login.feature:6[0m
+    [32mGiven the user is on the visitor page[90m                      # features/step_definitions/user_steps.rb:3[0m[0m
+    [32mGiven the user is a registered user[90m                        # features/step_definitions/user_steps.rb:7[0m[0m
+    [32mWhen the user enters email address[90m                         # features/step_definitions/user_steps.rb:14[0m[0m
+    [32mAnd the user enters password[90m                               # features/step_definitions/user_steps.rb:18[0m[0m
+    [32mAnd clicks on the "[32m[1mSign in[0m[0m[32m" button[90m                         # features/step_definitions/user_steps.rb:22[0m[0m
+    [32mAnd the user is on the users home page[90m                     # features/step_definitions/user_steps.rb:26[0m[0m
+    [31mThen the user should see "[31m[1mSigned in successfully.[0m[0m[31m"[90m         # features/step_definitions/user_steps.rb:32[0m[0m
+[31m      expected to find text "Signed in successfully." in "Toggle navigation Home Edit account Sign out Users Users /users/1 minikermit@hotmail.com" (RSpec::Expectations::ExpectationNotMetError)[0m
+[31m      ./features/step_definitions/user_steps.rb:33:in `/^the user should see "(.*?)"$/'[0m
+[31m      features/login.feature:16:in `Then the user should see "Signed in successfully."'[0m
+
+[31mFailing Scenarios:[0m
+[31mcucumber features/login.feature:6[0m[90m # Scenario: Registered user should login from the visitor page[0m
+
+1 scenario ([31m1 failed[0m)
+7 steps ([31m1 failed[0m, [32m6 passed[0m)
+0m4.625s
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle exec cucumber
+Using the default profile...
+Feature: Login from the visitor page
+  In order to login from visitpr page
+  Registered user
+  Should login from the visitors page
+
+  Scenario: Registered user should login from the visitor page[90m # features/login.feature:6[0m
+    [32mGiven the user is on the visitor page[90m                      # features/step_definitions/user_steps.rb:3[0m[0m
+    [32mGiven the user is a registered user[90m                        # features/step_definitions/user_steps.rb:7[0m[0m
+    [32mWhen the user enters email address[90m                         # features/step_definitions/user_steps.rb:14[0m[0m
+    [32mAnd the user enters password[90m                               # features/step_definitions/user_steps.rb:18[0m[0m
+    [32mAnd clicks on the "[32m[1mSign in[0m[0m[32m" button[90m                         # features/step_definitions/user_steps.rb:22[0m[0m
+    [32mAnd the user is on the users home page[90m                     # features/step_definitions/user_steps.rb:26[0m[0m
+    [31mAnd the user should see "[31m[1mSigned in successfully.[0m[0m[31m"[90m          # features/step_definitions/user_steps.rb:32[0m[0m
+[31m      expected to find text "Signed in successfully." in "Toggle navigation Home Edit account Sign out Users Users /users/1 minikermit@hotmail.com" (RSpec::Expectations::ExpectationNotMetError)[0m
+[31m      ./features/step_definitions/user_steps.rb:33:in `/^the user should see "(.*?)"$/'[0m
+[31m      features/login.feature:16:in `And the user should see "Signed in successfully."'[0m
+
+[31mFailing Scenarios:[0m
+[31mcucumber features/login.feature:6[0m[90m # Scenario: Registered user should login from the visitor page[0m
+
+1 scenario ([31m1 failed[0m)
+7 steps ([31m1 failed[0m, [32m6 passed[0m)
+0m4.842s
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle exec cucumber
+Using the default profile...
+Feature: Login from the visitor page
+  In order to login from visitpr page
+  Registered user
+  Should login from the visitors page
+
+  Scenario: Registered user should login from the visitor page[90m # features/login.feature:6[0m
+    [32mGiven the user is on the visitor page[90m                      # features/step_definitions/user_steps.rb:3[0m[0m
+    [32mGiven the user is a registered user[90m                        # features/step_definitions/user_steps.rb:7[0m[0m
+    [32mWhen the user enters email address[90m                         # features/step_definitions/user_steps.rb:14[0m[0m
+    [32mAnd the user enters password[90m                               # features/step_definitions/user_steps.rb:18[0m[0m
+    [32mAnd clicks on the "[32m[1mSign in[0m[0m[32m" button[90m                         # features/step_definitions/user_steps.rb:22[0m[0m
+    [32mThen the user is on the users home page[90m                    # features/step_definitions/user_steps.rb:26[0m[0m
+    [31mAnd the user should see "[31m[1mSigned in successfully.[0m[0m[31m"[90m          # features/step_definitions/user_steps.rb:30[0m[0m
+[31m      expected to find text "Signed in successfully." in "Toggle navigation Home Edit account Sign out Users Users /users/1 minikermit@hotmail.com" (RSpec::Expectations::ExpectationNotMetError)[0m
+[31m      ./features/step_definitions/user_steps.rb:31:in `/^the user should see "(.*?)"$/'[0m
+[31m      features/login.feature:16:in `And the user should see "Signed in successfully."'[0m
+
+[31mFailing Scenarios:[0m
+[31mcucumber features/login.feature:6[0m[90m # Scenario: Registered user should login from the visitor page[0m
+
+1 scenario ([31m1 failed[0m)
+7 steps ([31m1 failed[0m, [32m6 passed[0m)
+0m4.744s
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ bundle exec cucumber
+Using the default profile...
+Feature: Login from the visitor page
+  In order to login from visitpr page
+  Registered user
+  Should login from the visitors page
+
+  Scenario: Registered user should login from the visitor page[90m # features/login.feature:6[0m
+    [32mGiven the user is on the visitor page[90m                      # features/step_definitions/user_steps.rb:3[0m[0m
+    [32mGiven the user is a registered user[90m                        # features/step_definitions/user_steps.rb:7[0m[0m
+    [32mWhen the user enters email address[90m                         # features/step_definitions/user_steps.rb:14[0m[0m
+    [32mAnd the user enters password[90m                               # features/step_definitions/user_steps.rb:18[0m[0m
+    [32mAnd clicks on the "[32m[1mSign in[0m[0m[32m" button[90m                         # features/step_definitions/user_steps.rb:22[0m[0m
+    [32mThen the user should see "[32m[1mSigned in successfully.[0m[0m[32m"[90m         # features/step_definitions/user_steps.rb:26[0m[0m
+
+1 scenario ([32m1 passed[0m)
+6 steps ([32m6 passed[0m)
+0m4.627s
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ git remote -v
+origin	https://github.com/JGaudette/interview_coding_exercise.git (fetch)
+origin	https://github.com/JGaudette/interview_coding_exercise.git (push)
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ ls
+[0m[01;34mapp[0m       [01;34mbin[0m     [01;32mconfig.ru[0m  [01;34mfeatures[0m  [01;32mGemfile~[0m      generate  [01;34mlog[0m          [01;34mpublic[0m    [01;32mREADME.txt[0m  [01;34mspec[0m  [01;34mvendor[0m
+[01;32mapp.json[0m  [01;34mconfig[0m  [01;34mdb[0m         [01;32mGemfile[0m   [01;32mGemfile.lock[0m  [01;34mlib[0m       [01;32mnitrous.txt[0m  [01;32mRakefile[0m  [01;34mscript[0m      [01;34mtmp[0m
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercisegovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise$ cd app
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/appgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/app$ ls
+[0m[01;34massets[0m  [01;34mcontrollers[0m  [01;34mhelpers[0m  [01;34mmailers[0m  [01;34mmodels[0m  [01;34mservices[0m  [01;34mviews[0m
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/appgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/app$ cd controllers/
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/app/controllersgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/app/controllers$ ls
+[0m[01;32mapplication_controller.rb[0m  [01;34mconcerns[0m  [01;32musers_controller.rb[0m  [01;32mvisitors_controller.rb[0m
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/app/controllersgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/app/controllers$ cat[K[K[Kgedi t vo[Kisitors_controller.rb [C[C[C[C[C[1P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/app/controllersgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/app/controllers$ ls
+[0m[01;32mapplication_controller.rb[0m  [01;34mconcerns[0m  [01;32musers_controller.rb[0m  [01;32mvisitors_controller.rb[0m
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/app/controllersgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/app/controllers$ cd ..
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/appgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/app$ ls
+[0m[01;34massets[0m  [01;34mcontrollers[0m  [01;34mhelpers[0m  [01;34mmailers[0m  [01;34mmodels[0m  [01;34mservices[0m  [01;34mviews[0m
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/appgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/app$ cd views
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/app/viewsgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/app/views$ ls
+[0m[01;34mapplication[0m  [01;34mdevise[0m  [01;34mlayouts[0m  [01;34musers[0m  [01;34mvisitors[0m
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/app/viewsgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/app/views$ 
+]0;govisun@govisun-RK548AA-ABA-SR2180NX: ~/Downloads/interview_coding_exercise/app/viewsgovisun@govisun-RK548AA-ABA-SR2180NX:~/Downloads/interview_coding_exercise/app/views$ \[Kexit
+Script done on Wed 22 Oct 2014 03:12:09 AM EDT

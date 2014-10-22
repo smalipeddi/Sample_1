@@ -1,0 +1,21 @@
+--- 
+cursor_positions: 
+  - :path: features/manage_user.feature
+    :cursor_offset: 0
+    :timestamp: 2014-10-21 20:09:00 +05:30
+  - :path: features/step_definitions/users_steps.rb
+    :cursor_offset: 0
+    :timestamp: 2014-10-21 20:09:05 +05:30
+  - :path: features/support/paths.rb
+    :cursor_offset: 476
+    :timestamp: 2014-10-21 20:53:46 +05:30
+  - :path: features/support/env.rb
+    :cursor_offset: 0
+    :timestamp: 2014-10-21 20:10:09 +05:30
+  - :path: Gemfile
+    :cursor_offset: 0
+    :timestamp: 2014-10-21 20:15:44 +05:30
+  - :path: config/routes.rb
+    :cursor_offset: 0
+    :timestamp: 2014-10-21 18:48:37 +05:30
+files_to_retain: 0
